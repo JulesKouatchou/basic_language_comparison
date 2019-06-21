@@ -10,15 +10,20 @@ to claim that one language is better than the other.
 
  * Copy Multidimensional Arrays
  
-        An n x n x 3 matrix A is created and populated.
-        Entries are copied from A(i, j, k-1) to A(i, j, k) for each k in each row
-        and column (i, j). The elapsed time to perform this operation for the full
-        matrix is measured using both iterative and vectorization methods.
-        This tests the speed of the access to non-continuous memory locations.
+        Given an aribitraty n x n x 3 matrix A we perform the operations:
+         
+             A(i,j,1) = A(i,j,2)
+             A(i,j,3) = A(i,j,1)
+             A(i,j,2) = A(i,j,3)
+        
+        using loops and vectorization.
+        
+
 
 **String Manipulations**
 
  * Look and Say Sequence
+ 
         The look and say sequence reads a single integer. In each subsequent entry,
         the number of appearances of each integer in the previous entry is
         concatenated to the front of that integer. For example, an entry of 1223
@@ -26,10 +31,15 @@ to claim that one language is better than the other.
         Here, we start with the number 1223334444 and determine the look and sequence
         of order n (as n varies).
 
- o Count Unique words in a file
+ o Count Unique Words in a File
+ 
         We open an arbitrary file and count the number of unique words in it
         with the assumption that words such as:
+        
+        '''
                 ab   Ab   aB    a&*(-b:    17;A#~!b
+        '''
+                
         are the same.
 
 Numerical Computations
