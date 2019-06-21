@@ -1,8 +1,9 @@
 # Basic Comparison of Various Computing Languages
 
-## Authors:
+---
 
-- Jules Kouatchou
+# Authors:
+- Jules Kouatchou (Jules.Kouatchou@nasa.gov)
 - Alexander Medema
 
 ---
@@ -10,18 +11,16 @@
 We use simple test cases to compare various high level programming languages
 (Python, Julia, Matlab, IDL, R, Java, Scala, C, Fortran).
 We implement the test cases from an angle of a novice programmer who is not
-familiar with the optimization techniques available on the languages.
+familiar with the optimization techniques available in the languages.
 The goal is to highlight the strengths and weaknesses of each language but not
-to claim that one language is better than the other.
-
-
+to claim that one language is better than the others.
 
 
 ---
 
 ## Loops and Vectorization
 
- * Copy Multidimensional Arrays
+ * **Copy Multidimensional Arrays**
  
         Given an aribitraty n x n x 3 matrix A we perform the operations:
          
