@@ -2,7 +2,7 @@
 
 ---
 
-# Authors:
+### Authors:
 - Jules Kouatchou (Jules.Kouatchou@nasa.gov)
 - Alexander Medema
 
@@ -18,7 +18,34 @@ to claim that one language is better than the others.
 
 ---
 
-## Loops and Vectorization
+## List of Test Cases
+
+The test cases are listed in categories that include:
+
+- Loops and Vectorization
+- String Manipulations
+- Numerical Calculations
+- Input/Output
+
+Each test is "simple" enough to be quickly written in any of the languages and is meant to 
+address issues such as:
+- Access of non-contiguous memory locations
+- Use of recursive functions, 
+- Utilization of loops or vectorization, 
+- Opening of a large number of files, 
+- Manipulation of strings of arbitrary lengths, 
+- Multiplication of matrices, 
+- Use of iterative solvers
+- etc.
+
+The source files are contain in the directories:
+
+      C\    Fortran\  IDL\  Java\  Julia\  Matlab\  Python\  R\  Scala\
+      
+There is also a directory "Data\" that contains a Python script that generates the NetCDF4 files
+needed for the test case on reading a large collection of files.
+
+### Loops and Vectorization
 
  * **Copy Multidimensional Arrays**
  
@@ -32,7 +59,7 @@ to claim that one language is better than the others.
         
 
 
-## String Manipulations
+### String Manipulations
 
  * **Look and Say Sequence**
  
@@ -52,7 +79,7 @@ to claim that one language is better than the others.
                 
         are the same.
 
-## Numerical Computations
+### Numerical Computations
 
  * **Fibonacci Sequence**
  
@@ -134,7 +161,7 @@ to claim that one language is better than the others.
         there are four such numbers: 0, 1, 3435 and 438579088. We determine how
         much time it takes to find them.
 
-## Input/Output
+### Input/Output
 
  * **Reading a Large Collection of Files**
  
