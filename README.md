@@ -9,6 +9,7 @@ to claim that one language is better than the other.
 **Loops and Vectorization**
 
  * Copy Multidimensional Arrays
+ 
         An n x n x 3 matrix A is created and populated.
         Entries are copied from A(i, j, k-1) to A(i, j, k) for each k in each row
         and column (i, j). The elapsed time to perform this operation for the full
