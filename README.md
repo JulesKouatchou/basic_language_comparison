@@ -1,5 +1,10 @@
 # Basic Comparison of Various Computing Languages
 
+We use simple test cases to compare various high level  programming languages.
+We implement the test cases from an angle of a novice programmer who is not
+familiar with the optimization techniques available on the languages.
+The goal is to highlight the strengths and weaknesses of each language but not
+to claim that one language is better than the other.
 
 **Loops and Vectorization**
 
