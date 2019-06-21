@@ -1,5 +1,12 @@
 # Basic Comparison of Various Computing Languages
 
+## Authors:
+
+- Jules Kouatchou
+- Alexander Medema
+
+---
+
 We use simple test cases to compare various high level programming languages
 (Python, Julia, Matlab, IDL, R, Java, Scala, C, Fortran).
 We implement the test cases from an angle of a novice programmer who is not
@@ -7,7 +14,12 @@ familiar with the optimization techniques available on the languages.
 The goal is to highlight the strengths and weaknesses of each language but not
 to claim that one language is better than the other.
 
-**Loops and Vectorization**
+
+
+
+---
+
+## Loops and Vectorization
 
  * Copy Multidimensional Arrays
  
@@ -21,9 +33,9 @@ to claim that one language is better than the other.
         
 
 
-**String Manipulations**
+## String Manipulations
 
- * Look and Say Sequence
+ * **Look and Say Sequence**
  
         The look and say sequence reads a single integer. In each subsequent entry,
         the number of appearances of each integer in the previous entry is
@@ -32,7 +44,7 @@ to claim that one language is better than the other.
         Here, we start with the number 1223334444 and determine the look and sequence
         of order n (as n varies).
 
- o Count Unique Words in a File
+ * **Count Unique Words in a File**
  
         We open an arbitrary file and count the number of unique words in it
         with the assumption that words such as:
@@ -41,9 +53,9 @@ to claim that one language is better than the other.
                 
         are the same.
 
-**Numerical Computations**
+## Numerical Computations
 
- o Fibonacci Sequence
+ * **Fibonacci Sequence**
  
         The Fibonacci Sequence is a sequence of numbers where each successive number
         is the sum of the two that precede it:
@@ -58,13 +70,13 @@ to claim that one language is better than the other.
         The calculation times are taken for both iterative and recursive calculation
         methods.
 
- * Matrix Multiplication
+ * **Matrix Multiplication**
  
         Two randomly generated n x n matrices A and B are multiplied.
         The time to perform the multiplication is measured. This test highlights the
         importance of using the language's built-in libraries.
 
- * Belief Propagation Algorithm
+ * **Belief Propagation Algorithm**
  
         Belief propagation is an algorithm used for inference, often in the fields of
         artificial intelligence, speech recognition, computer vision, image processing,
@@ -74,27 +86,27 @@ to claim that one language is better than the other.
         algorithm.
 
 
- * Metropolis-Hastings Algorithm
+ * **Metropolis-Hastings Algorithm**
  
         The Metropolis-Hastings algorithm is a an algorithm used to determine random
         samples from a probability distribution. This implementation uses a
         two-dimensional distribution (Domke 2012), and measures the elapsed time to
         iterate n times.
 
- * Compute the FFTs
+ * **Compute the FFTs**
         An matrix M with dimensions n x n is populated with random complex values.
         The Fast Fourier Transform (FFT) of M is calculated as matrix r, then
         the absolute value of r is taken. The time to complete this full operation
         is measured.
 
-* Iterative Solver
+* **Iterative Solver**
 
         We use the Jacobi iterative solver to numerically approximate the solution
         of the two-dimensional Laplace equation (that was discretized with a
         fouth order compact schems) to a differential equation. we record the
         elapsed time as the number of grid point varies.
 
- * Square Root of a Matrix
+ * **Square Root of a Matrix**
  
         Given an n x n matrix A, we are looking for the matrix B such that:
         
@@ -103,7 +115,7 @@ to claim that one language is better than the other.
         In our calculations, we consider A with 6s on the diagonal and 1s elsewhere.
 
 
- * Gauss-Legendre quadrature
+ * **Gauss-Legendre quadrature**
  
         Gauss-Legendre quadrature is a numerical method for approximating definite
         integrals. It uses a weighted sum of n values of the integrand function.
@@ -111,21 +123,21 @@ to claim that one language is better than the other.
         to 2n - 1. Here we consier an exponential function over the interval [-3,3]
         and record the time to perform the integral when n varies.
 
- * Function evaluations
+ * **Function evaluations**
  
         We iteratively calculate trigonometric functions on an n-element list of
         values, and then compute inverse trigonometric functions on the same list.
         The time to complete the full operations is measured as n varies.
 
- * Munchausen Numbers
+ * **Munchausen Numbers**
  
         A Munchausen number is a natural number that is equal to the sum of its
         there are four such numbers: 0, 1, 3435 and 438579088. We determine how
         much time it takes to find them.
 
-**Input/Output**
+## Input/Output
 
- * Reading a Large Collection of Files
+ * **Reading a Large Collection of Files**
  
        We have a set of daily NetCDF files (7305) covering a period of 20 years.
        The files for a given year are in a sub-directory labeled YYYY
