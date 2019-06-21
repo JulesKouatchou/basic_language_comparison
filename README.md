@@ -1,18 +1,18 @@
 # Basic Comparison of Various Computing Languages
 
 
-Loops and Vectorization
------------------------
- o Copy Multidimensional Arrays
+**Loops and Vectorization**
+
+ * Copy Multidimensional Arrays
         An n x n x 3 matrix A is created and populated.
         Entries are copied from A(i, j, k-1) to A(i, j, k) for each k in each row
         and column (i, j). The elapsed time to perform this operation for the full
         matrix is measured using both iterative and vectorization methods.
         This tests the speed of the access to non-continuous memory locations.
 
-String Manipulations
---------------------
- o Look and Say Sequence
+**String Manipulations**
+
+ * Look and Say Sequence
         The look and say sequence reads a single integer. In each subsequent entry,
         the number of appearances of each integer in the previous entry is
         concatenated to the front of that integer. For example, an entry of 1223
