@@ -171,7 +171,6 @@ needed for the test case on reading a large collection of files.
        opens each file, reads a three-dimensional variable (longitude/latitude/level),
        and manipulates it. A pseudo code for the script reads:
 
-       ''' html
            Loop over the years
                 Obtain the list of NetCDF files
                 Loop over the files
@@ -179,7 +178,6 @@ needed for the test case on reading a large collection of files.
                      Compute the zonal mean average (new array of latitude/level)
                      Extract the column array at latitude 86 degree South
                      Append the column array to a "master" array (or matrix)
-       '''
 
        The goal is to be able to do a generate the three-diemsional arrays
        (year/level/value) and carry out a contour plot.
