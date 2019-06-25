@@ -157,9 +157,9 @@ needed for the test case on reading a large collection of files.
 
  * **Munchausen Numbers**
  
-        A Munchausen number is a natural number that is equal to the sum of its
-        there are four such numbers: 0, 1, 3435 and 438579088. We determine how
-        much time it takes to find them.
+        A Munchausen number is a natural number that is equal to the sum of its digits
+        raised to each digit's power. In base 10, there are four such numbers: 
+        0, 1, 3435 and 438579088. We determine how much time it takes to find them.
 
 ### Input/Output
 
