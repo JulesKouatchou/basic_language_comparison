@@ -120,10 +120,10 @@ needed for the test case on reading a large collection of files.
         iterate n times.
 
  * **Compute the FFTs**
-        An matrix M with dimensions n x n is populated with random complex values.
-        The Fast Fourier Transform (FFT) of M is calculated as matrix r, then
-        the absolute value of r is taken. The time to complete this full operation
-        is measured.
+ 
+        We create a n x n matrix M that randomn random complex values.
+        We the compute the Fast Fourier Transform (FFT) of M and the absolute
+        value of the result.
 
 * **Iterative Solver**
 
