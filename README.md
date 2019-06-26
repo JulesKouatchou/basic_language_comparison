@@ -78,6 +78,14 @@ needed for the test case on reading a large collection of files.
                 ab   Ab   aB    a&*(-b:    17;A#~!b
                 
         are the same.
+        
+        For our tests, we use the four files: 
+        
+               world192.txt, plrabn12.txt, bible.txt, and book1
+               
+        taken from the website (The Canterbury Corpus):
+        
+              http://corpus.canterbury.ac.nz/descriptions/
 
 ### Numerical Computations
 
