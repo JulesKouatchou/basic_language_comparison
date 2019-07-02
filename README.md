@@ -43,8 +43,9 @@ The source files are contain in the directories:
 
       C\    Fortran\  IDL\  Java\  Julia\  Matlab\  Python\  R\  Scala\
       
-There is also a directory "Data\" that contains a Python script that generates the NetCDF4 files
-needed for the test case on reading a large collection of files.
+There is also a directory "Data\" that contains a Python script that generates 
+the NetCDF4 files needed for the test case on reading a large collection of files.
+It also has sample text files for the **Count Unique Words in a File** test case.
 
 ### Loops and Vectorization
 
@@ -68,8 +69,8 @@ needed for the test case on reading a large collection of files.
         the number of appearances of each integer in the previous entry is
         concatenated to the front of that integer. For example, an entry of 1223
         would be followed by 112213, or "one 1, two 2's, one 3."
-        Here, we start with the number 1223334444 and determine the look and sequence
-        of order n (as n varies).
+        Here, we start with the number 1223334444 and determine the look and say
+        sequence of order n (as n varies).
 
  * **Count Unique Words in a File**
  
