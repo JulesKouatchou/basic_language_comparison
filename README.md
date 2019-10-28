@@ -43,7 +43,7 @@ The source files are contain in the directories:
 
       C\    Fortran\  IDL\  Java\  Julia\  Matlab\  Python\  R\  Scala\
       
-There is also a directory "Data\" that contains a Python script that generates 
+There is also a directory `Data` that contains a Python script that generates 
 the NetCDF4 files needed for the test case on reading a large collection of files.
 It also has sample text files for the **Count Unique Words in a File** test case.
 

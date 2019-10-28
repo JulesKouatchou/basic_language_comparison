@@ -1,0 +1,58 @@
+#!/bin/csh -f
+
+#SBATCH --time=01:30:00
+#SBATCH --job-name=numpy
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A a930b
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Python2018log_Numba-%j.out
+
+
+#######################################################################
+#                  System Environment Variables
+#######################################################################
+
+umask 022
+
+limit
+
+source /usr/share/modules/init/csh
+module purge
+
+module load other/comp/gcc-7.3
+module load other/SSSO_Ana-PyD/SApd_5.0.1_py2.7_gcc-7.3
+
+setenv workDIR /discover/nobackup/jkouatch/LearningPython/compareLanguages/refSourceFiles/Python
+
+cd $workDIR
+
+echo '-------------------------'
+echo 'Numba - Copy of matrix'
+echo '-------------------------'
+python test_copy_matrix_numba.py 5000
+python test_copy_matrix_numba.py 7000
+python test_copy_matrix_numba.py 9000
+
+echo '-------------------------'
+echo 'Numba - matrix multiplication'
+echo '-------------------------'
+python test_matrix_multiplication_numba.py 1500
+python test_matrix_multiplication_numba.py 1750
+python test_matrix_multiplication_numba.py 2000
+
+echo '-------------------------'
+echo 'Numba - Fibonacci Sequence'
+echo '-------------------------'
+python test_fibonacci_numba.py 25
+python test_fibonacci_numba.py 35
+#python test_fibonacci_numba.py 45
+
+echo '-------------------------'
+echo 'Numba - Jacobi iterative solver'
+echo '-------------------------'
+python test_laplace_jacobi_4_numba.py 100
+python test_laplace_jacobi_4_numba.py 150
+python test_laplace_jacobi_4_numba.py 200
+

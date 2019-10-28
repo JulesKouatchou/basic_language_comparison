@@ -1,0 +1,156 @@
+#!/bin/csh -f
+
+#SBATCH --time=07:00:00
+#SBATCH --job-name=numpy
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Python2019log-%j.out
+
+
+#######################################################################
+#                  System Environment Variables
+#######################################################################
+
+umask 022
+
+#limit
+
+source /usr/share/modules/init/csh
+module purge
+
+module load other/python/GEOSpyD/Ana2019.03_py3.7
+
+
+echo '-------------------------'
+echo 'Copy Matrix'
+echo '-------------------------'
+python test_copy_matrix.py 5000
+python test_copy_matrix.py 7000
+python test_copy_matrix.py 9000
+
+#echo '-------------------------'
+#echo 'Numba - Copy of matrix'
+#echo '-------------------------'
+#python test_copy_matrix_numba.py 5000
+#python test_copy_matrix_numba.py 7000
+#python test_copy_matrix_numba.py 9000
+
+echo '-------------------------'
+echo 'Look and say sequence'
+echo '-------------------------'
+python test_look_and_say.py 40
+python test_look_and_say.py 45
+python test_look_and_say.py 48
+
+echo '-------------------------'
+echo ‘Count Unique Words in File
+echo '-------------------------'
+python test_count_unique_words.py ../Data/bible.txt
+python test_count_unique_words.py ../Data/book1.txt
+python test_count_unique_words.py ../Data/plrabn12.txt
+python test_count_unique_words.py ../Data/world192.txt
+
+echo '-------------------------'
+echo 'Fibonacci Sequence'
+echo '-------------------------'
+python test_fibonacci.py 25
+python test_fibonacci.py 35
+python test_fibonacci.py 45
+
+#echo '-------------------------'
+#echo 'Numba - Fibonacci Sequence'
+#echo '-------------------------'
+#python test_fibonacci_numba.py 25
+#python test_fibonacci_numba.py 35
+#python test_fibonacci_numba.py 45
+
+echo '-------------------------'
+echo 'Matrix Multiplication'
+echo '-------------------------'
+python test_matrix_multiplication.py 1500
+python test_matrix_multiplication.py 1750
+python test_matrix_multiplication.py 2000
+
+#echo '-------------------------'
+#echo 'Numba - matrix multiplication'
+#echo '-------------------------'
+#python test_matrix_multiplication_numba.py 1500
+#python test_matrix_multiplication_numba.py 1750
+#python test_matrix_multiplication_numba.py 2000
+
+echo '-------------------------'
+echo 'Belief Propagation'
+echo '-------------------------'
+python test_belief_propagation.py 250
+python test_belief_propagation.py 500
+python test_belief_propagation.py 1000
+
+echo '-------------------------'
+echo 'Markov Chain'
+echo '-------------------------'
+python test_markov_chain.py 5000
+python test_markov_chain.py 10000
+python test_markov_chain.py 15000
+
+echo '-------------------------'
+echo 'Compute FFT'
+echo '-------------------------'
+python test_compute_FFT.py 10000
+python test_compute_FFT.py 15000
+python test_compute_FFT.py 20000
+
+echo '-------------------------'
+echo 'Jacobi Iterative solver'
+echo '-------------------------'
+python test_laplace_jacobi_4.py 100
+python test_laplace_jacobi_4.py 150
+python test_laplace_jacobi_4.py 200
+
+#echo '-------------------------'
+#echo 'Numba - Jacobi iterative solver'
+#echo '-------------------------'
+#python test_laplace_jacobi_4_numba.py 100
+#python test_laplace_jacobi_4_numba.py 150
+#python test_laplace_jacobi_4_numba.py 200
+
+echo '-------------------------'
+echo 'Compute square root of a matrix'
+echo '-------------------------'
+python test_sqrt_matrix.py 1000
+python test_sqrt_matrix.py 2000
+python test_sqrt_matrix.py 4000
+
+echo 'Gauss Legendre quadrature'
+echo '-------------------------'
+python test_gauss_legendre_quadrature.py 50
+python test_gauss_legendre_quadrature.py 75
+python test_gauss_legendre_quadrature.py 100
+
+echo '-------------------------'
+echo 'Evaluation of functions'
+echo '-------------------------'
+python test_evaluate_functions.py  80000
+python test_evaluate_functions.py  90000
+python test_evaluate_functions.py 100000
+
+echo '-------------------------'
+echo 'Compute Munchausen Numbers'
+echo '-------------------------'
+python test_munchausen_number.py
+#
+#echo '-------------------------'
+#echo 'Processing a collection of files'
+#echo '-------------------------'
+#time python test_time_series_AOA.py
+#time python test_time_series_AOA_multiproc.py 1
+#time python test_time_series_AOA_multiproc.py 2
+#time python test_time_series_AOA_multiproc.py 4
+#time python test_time_series_AOA_multiproc.py 8
+#time python test_time_series_AOA_multiproc.py 16
+#time python test_time_series_AOA_multiproc.py 24
+##time python test_time_series_AOA_multiproc.py 28
+
+

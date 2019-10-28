@@ -1,0 +1,460 @@
+#! /bin/csh -f
+
+#SBATCH --time=03:20:00
+#SBATCH --job-name=fortran
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Fortran2019log-%j.out
+
+source /usr/share/modules/init/csh
+module purge
+ 
+module load other/comp/gcc-9.1
+module load comp/intel-18.0.5.274
+
+rm -f *.exe
+
+echo '--------------------------------------------------'
+echo 'gfortran - Matrix Copy: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_copy_matrix.F90 -o test_copy_matrix-gfr.exe
+
+./test_copy_matrix-gfr.exe 5000
+./test_copy_matrix-gfr.exe 7000
+./test_copy_matrix-gfr.exe 9000
+
+echo '--------------------------------------------------'
+echo 'gfortran - Matrix Copy: Optimized'
+echo '--------------------------------------------------'
+
+gfortran -O3 test_copy_matrix.F90 -o test_copy_matrix-gfo.exe
+
+./test_copy_matrix-gfo.exe 5000
+./test_copy_matrix-gfo.exe 7000
+./test_copy_matrix-gfo.exe 9000
+
+echo '--------------------------------------------------'
+echo 'ifort - Matrix Copy: Regular'
+echo '--------------------------------------------------'
+
+ifort test_copy_matrix.F90 -o test_copy_matrix-ifr.exe
+
+./test_copy_matrix-ifr.exe 5000
+./test_copy_matrix-ifr.exe 7000
+./test_copy_matrix-ifr.exe 9000
+
+echo '--------------------------------------------------'
+echo 'ifort - Matrix Copy: Optimized'
+echo '--------------------------------------------------'
+
+ifort -O3 test_copy_matrix.F90 -o test_copy_matrix-ifo.exe
+
+./test_copy_matrix-ifo.exe 5000
+./test_copy_matrix-ifo.exe 7000
+./test_copy_matrix-ifo.exe 9000
+
+echo '--------------------------------------------------'
+echo 'gfortran - Look and Say: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_look_and_say.F90 -o test_look_and_say-gfr.exe
+
+./test_look_and_say-gfr.exe 40
+./test_look_and_say-gfr.exe 45
+./test_look_and_say-gfr.exe 48
+
+echo '--------------------------------------------------'
+echo 'gfortran - Look and Say: Optimized'
+echo '--------------------------------------------------'
+
+gfortran -O3 test_look_and_say.F90 -o test_look_and_say-gfo.exe
+
+./test_look_and_say-gfo.exe 40
+./test_look_and_say-gfo.exe 45
+./test_look_and_say-gfo.exe 48
+
+echo '--------------------------------------------------'
+echo 'ifort - Look and Say: Regular'
+echo '--------------------------------------------------'
+
+ifort test_look_and_say.F90 -o test_look_and_say-ifr.exe
+
+./test_look_and_say-ifr.exe 40
+./test_look_and_say-ifr.exe 45
+./test_look_and_say-ifr.exe 48
+
+echo '--------------------------------------------------'
+echo 'ifort - Look and Say: Optimized'
+echo '--------------------------------------------------'
+
+ifort -O3 test_look_and_say.F90 -o test_look_and_say-ifo.exe
+
+./test_look_and_say-ifo.exe 40
+./test_look_and_say-ifo.exe 45
+./test_look_and_say-ifo.exe 48
+
+echo '--------------------------------------------------'
+echo 'gfortran - Fibonacci: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_fibonacci.F90 -o test_fibonacci-gfr.exe
+
+./test_fibonacci-gfr.exe 25
+./test_fibonacci-gfr.exe 35
+./test_fibonacci-gfr.exe 45
+
+echo '----------------------------------------------------'
+echo 'gfortran - Fibonacci: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_fibonacci.F90 -o test_fibonacci-gfo.exe
+
+./test_fibonacci-gfo.exe 25
+./test_fibonacci-gfo.exe 35
+./test_fibonacci-gfo.exe 45
+
+echo '--------------------------------------------------'
+echo 'ifort - Fibonacci: Regular'
+echo '--------------------------------------------------'
+
+ifort test_fibonacci.F90 -o test_fibonacci-ifr.exe
+
+./test_fibonacci-ifr.exe 25
+./test_fibonacci-ifr.exe 35
+./test_fibonacci-ifr.exe 45
+
+echo '----------------------------------------------------'
+echo 'ifort - Fibonacci: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_fibonacci.F90 -o test_fibonacci-ifo.exe
+
+./test_fibonacci-ifo.exe 25
+./test_fibonacci-ifo.exe 35
+./test_fibonacci-ifo.exe 45
+
+echo '--------------------------------------------------'
+echo 'gfortran - Matrix Multiplication: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_matrix_multiplication.F90 -o test_matrix_multiplication-gfr.exe
+
+./test_matrix_multiplication-gfr.exe 1500 1500 1500
+./test_matrix_multiplication-gfr.exe 1750 1750 1750
+./test_matrix_multiplication-gfr.exe 2000 2000 2000
+
+echo '----------------------------------------------------'
+echo 'gfortran - Matrix Multiplication: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_matrix_multiplication.F90 -o test_matrix_multiplication-gfo.exe
+
+./test_matrix_multiplication-gfo.exe 1500 1500 1500
+./test_matrix_multiplication-gfo.exe 1750 1750 1750
+./test_matrix_multiplication-gfo.exe 2000 2000 2000
+
+echo '--------------------------------------------------'
+echo 'ifort - Matrix Multiplication: Regular'
+echo '--------------------------------------------------'
+
+ifort test_matrix_multiplication.F90 -o test_matrix_multiplication-ifr.exe
+
+./test_matrix_multiplication-ifr.exe 1500 1500 1500
+./test_matrix_multiplication-ifr.exe 1750 1750 1750
+./test_matrix_multiplication-ifr.exe 2000 2000 2000
+
+echo '----------------------------------------------------'
+echo 'ifort - Matrix Multiplication: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_matrix_multiplication.F90 -o test_matrix_multiplication-ifo.exe
+
+./test_matrix_multiplication-ifo.exe 1500 1500 1500
+./test_matrix_multiplication-ifo.exe 1750 1750 1750
+./test_matrix_multiplication-ifo.exe 2000 2000 2000
+
+echo '----------------------------------------------------'
+echo 'ifort - Matrix Multiplication with DGEMM'
+echo '----------------------------------------------------'
+ifort -O3 -c test_matrix_multiplication_DGEMM.F90
+ifort -O3 test_matrix_multiplication_DGEMM.o -o test_matrix_multiplication_DGEMM.exe -lmkl_intel_lp64 -lmkl_sequential -lmkl_core
+
+./test_matrix_multiplication_DGEMM.exe 1500
+./test_matrix_multiplication_DGEMM.exe 1750
+./test_matrix_multiplication_DGEMM.exe 2000
+
+echo '--------------------------------------------------'
+echo 'gfortran - Evaluate Functions - regular'
+echo '--------------------------------------------------'
+
+gfortran test_evaluate_functions.F90 -o test_evaluate_functions-gfr.exe
+
+./test_evaluate_functions-gfr.exe 80000
+./test_evaluate_functions-gfr.exe 90000
+./test_evaluate_functions-gfr.exe 100000
+
+echo '--------------------------------------------------'
+echo 'gfortran - Evaluate Functions: Optimized'
+echo '--------------------------------------------------'
+
+gfortran -O3 test_evaluate_functions.F90 -o test_evaluate_functions-gfo.exe
+
+./test_evaluate_functions-gfo.exe 80000
+./test_evaluate_functions-gfo.exe 90000
+./test_evaluate_functions-gfo.exe 100000
+
+echo '--------------------------------------------------'
+echo 'ifort - Evaluate Functions - regular'
+echo '--------------------------------------------------'
+
+ifort test_evaluate_functions.F90 -o test_evaluate_functions-ifr.exe
+
+./test_evaluate_functions-ifr.exe 80000
+./test_evaluate_functions-ifr.exe 90000
+./test_evaluate_functions-ifr.exe 100000
+
+echo '--------------------------------------------------'
+echo 'ifort - Evaluate Functions: Optimized'
+echo '--------------------------------------------------'
+
+ifort -O3 test_evaluate_functions.F90 -o test_evaluate_functions-ifo.exe
+
+./test_evaluate_functions-ifo.exe 80000
+./test_evaluate_functions-ifo.exe 90000
+./test_evaluate_functions-ifo.exe 100000
+
+echo '--------------------------------------------------'
+echo 'gfortran - belief - regular'
+echo '--------------------------------------------------'
+
+gfortran test_belief_propagation.F90 -o test_belief_propagation-gfr.exe
+
+./test_belief_propagation-gfr.exe 250
+./test_belief_propagation-gfr.exe 500
+./test_belief_propagation-gfr.exe 1000
+
+echo '--------------------------------------------------'
+echo 'gfortran - belief: Optimized'
+echo '--------------------------------------------------'
+
+gfortran -O3 test_belief_propagation.F90 -o test_belief_propagation-gfo.exe
+
+./test_belief_propagation-gfo.exe 250
+./test_belief_propagation-gfo.exe 500
+./test_belief_propagation-gfo.exe 1000
+
+echo '--------------------------------------------------'
+echo 'ifort - belief - regular'
+echo '--------------------------------------------------'
+
+ifort test_belief_propagation.F90 -o test_belief_propagation-ifr.exe
+
+./test_belief_propagation-ifr.exe 250
+./test_belief_propagation-ifr.exe 500
+./test_belief_propagation-ifr.exe 1000
+
+echo '--------------------------------------------------'
+echo 'ifort - belief: Optimized'
+echo '--------------------------------------------------'
+
+ifort -O3 test_belief_propagation.F90 -o test_belief_propagation-ifo.exe
+
+./test_belief_propagation-ifo.exe 250
+./test_belief_propagation-ifo.exe 500
+./test_belief_propagation-ifo.exe 1000
+
+echo '--------------------------------------------------'
+echo 'gfortran - Markov Chain: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_markov_chain.F90 -o test_markov_chain-gfr.exe
+
+./test_markov_chain-gfr.exe 5000
+./test_markov_chain-gfr.exe 10000
+./test_markov_chain-gfr.exe 15000
+
+echo '----------------------------------------------------'
+echo 'gfortran - Markov Chain: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_markov_chain.F90 -o test_markov_chain-gfo.exe
+
+./test_markov_chain-gfo.exe 5000
+./test_markov_chain-gfo.exe 10000
+./test_markov_chain-gfo.exe 15000
+
+echo '--------------------------------------------------'
+echo 'ifort - Markov Chain: Regular'
+echo '--------------------------------------------------'
+
+ifort test_markov_chain.F90 -o test_markov_chain-ifr.exe
+
+./test_markov_chain-ifr.exe 5000
+./test_markov_chain-ifr.exe 10000
+./test_markov_chain-ifr.exe 15000
+
+echo '----------------------------------------------------'
+echo 'ifort - Markov Chain: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_markov_chain.F90 -o test_markov_chain-ifo.exe
+
+./test_markov_chain-ifo.exe 5000
+./test_markov_chain-ifo.exe 10000
+./test_markov_chain-ifo.exe 15000
+
+echo '----------------------------------------------------'
+echo 'gfortran - Fourth-order Laplace: Regular (loop)'
+echo '----------------------------------------------------'
+
+gfortran test_laplace_jacobi_4_loops.F90 -o test_laplace_jacobi_4_loops-gfr.exe
+
+./test_laplace_jacobi_4_loops-gfr.exe 100
+./test_laplace_jacobi_4_loops-gfr.exe 150
+./test_laplace_jacobi_4_loops-gfr.exe 200
+
+echo '----------------------------------------------------'
+echo 'gfortran - Fourth-order Laplace: Optimized (loop)'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_laplace_jacobi_4_loops.F90 -o test_laplace_jacobi_4_loops-gfo.exe
+
+./test_laplace_jacobi_4_loops-gfo.exe 100
+./test_laplace_jacobi_4_loops-gfo.exe 150
+./test_laplace_jacobi_4_loops-gfo.exe 200
+
+echo '----------------------------------------------------'
+echo 'gfortran - Fourth-order Laplace: Regular (vectorization)'
+echo '----------------------------------------------------'
+
+gfortran test_laplace_jacobi_4_vectorized.F90 -o test_laplace_jacobi_4_vectorized-gfr.exe
+
+./test_laplace_jacobi_4_vectorized-gfr.exe 100
+./test_laplace_jacobi_4_vectorized-gfr.exe 150
+./test_laplace_jacobi_4_vectorized-gfr.exe 200
+
+echo '----------------------------------------------------'
+echo 'gfortran - Fourth-order Laplace: Optimized (vectorization)'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_laplace_jacobi_4_vectorized.F90 -o test_laplace_jacobi_4_vectorized-gfo.exe
+
+./test_laplace_jacobi_4_vectorized-gfo.exe 100
+./test_laplace_jacobi_4_vectorized-gfo.exe 150
+./test_laplace_jacobi_4_vectorized-gfo.exe 200
+
+echo '----------------------------------------------------'
+echo 'ifort - Fourth-order Laplace: Regular (loop)'
+echo '----------------------------------------------------'
+
+ifort test_laplace_jacobi_4_loops.F90 -o test_laplace_jacobi_4_loops-ifr.exe
+
+./test_laplace_jacobi_4_loops-ifr.exe 100
+./test_laplace_jacobi_4_loops-ifr.exe 150
+./test_laplace_jacobi_4_loops-ifr.exe 200
+
+echo '----------------------------------------------------'
+echo 'ifort - Fourth-order Laplace: Optimized (loop)'
+echo '----------------------------------------------------'
+
+ifort -O3 test_laplace_jacobi_4_loops.F90 -o test_laplace_jacobi_4_loops-ifo.exe
+
+./test_laplace_jacobi_4_loops-ifo.exe 100
+./test_laplace_jacobi_4_loops-ifo.exe 150
+./test_laplace_jacobi_4_loops-ifo.exe 200
+
+echo '----------------------------------------------------'
+echo 'ifort - Fourth-order Laplace: Regular (vectorization)'
+echo '----------------------------------------------------'
+
+ifort test_laplace_jacobi_4_vectorized.F90 -o test_laplace_jacobi_4_vectorized-ifr.exe
+
+./test_laplace_jacobi_4_vectorized-ifr.exe 100
+./test_laplace_jacobi_4_vectorized-ifr.exe 150
+./test_laplace_jacobi_4_vectorized-ifr.exe 200
+
+echo '----------------------------------------------------'
+echo 'ifort - Fourth-order Laplace: Optimized (vectorization)'
+echo '----------------------------------------------------'
+
+ifort -O3 test_laplace_jacobi_4_vectorized.F90 -o test_laplace_jacobi_4_vectorized-ifo.exe
+
+./test_laplace_jacobi_4_vectorized-ifo.exe 100
+./test_laplace_jacobi_4_vectorized-ifo.exe 150
+./test_laplace_jacobi_4_vectorized-ifo.exe 200
+
+echo '--------------------------------------------------'
+echo 'gfortran - Gauss-Legendre Quadrature: Regular'
+echo '--------------------------------------------------'
+
+gfortran test_gauss_legendre_quadrature.F90 -o test_gauss_legendre_quadrature-gfr.exe
+
+./test_gauss_legendre_quadrature-gfr.exe 50
+./test_gauss_legendre_quadrature-gfr.exe 75
+./test_gauss_legendre_quadrature-gfr.exe 100
+
+echo '----------------------------------------------------'
+echo 'gfortran - Gauss-Legendre Quadrature: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_gauss_legendre_quadrature.F90 -o test_gauss_legendre_quadrature-gfo.exe
+
+./test_gauss_legendre_quadrature-gfo.exe 50
+./test_gauss_legendre_quadrature-gfo.exe 75
+./test_gauss_legendre_quadrature-gfo.exe 100
+
+echo '--------------------------------------------------'
+echo 'ifort - Gauss-Legendre Quadrature: Regular'
+echo '--------------------------------------------------'
+
+ifort test_gauss_legendre_quadrature.F90 -o test_gauss_legendre_quadrature-ifr.exe
+
+./test_gauss_legendre_quadrature-ifr.exe 50
+./test_gauss_legendre_quadrature-ifr.exe 75
+./test_gauss_legendre_quadrature-ifr.exe 100
+
+echo '----------------------------------------------------'
+echo 'ifort - Gauss-Legendre Quadrature: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_gauss_legendre_quadrature.F90 -o test_gauss_legendre_quadrature-ifo.exe
+
+./test_gauss_legendre_quadrature-ifo.exe 50
+./test_gauss_legendre_quadrature-ifo.exe 75
+./test_gauss_legendre_quadrature-ifo.exe 100
+
+echo '----------------------------------------------------'
+echo 'gfortran - Munchausen Number: Regular'
+echo '----------------------------------------------------'
+
+gfortran test_munchausen_number.F90 -o test_munchausen_number-gfr.exe
+
+./test_munchausen_number-gfr.exe 
+
+echo '----------------------------------------------------'
+echo 'gfortran - Munchausen Number: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_munchausen_number.F90 -o test_munchausen_number-gfo.exe
+
+./test_munchausen_number-gfo.exe 
+
+echo '----------------------------------------------------'
+echo 'ifort - Munchausen Number: Regular'
+echo '----------------------------------------------------'
+
+ifort test_munchausen_number.F90 -o test_munchausen_number-ifr.exe
+
+./test_munchausen_number-ifr.exe 
+
+echo '----------------------------------------------------'
+echo 'ifort - Munchausen Number: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_munchausen_number.F90 -o test_munchausen_number-ifo.exe
+
+./test_munchausen_number-ifo.exe

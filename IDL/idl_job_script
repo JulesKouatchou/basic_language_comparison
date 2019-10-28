@@ -1,0 +1,23 @@
+#! /bin/csh -f
+#SBATCH --time=07:30:00
+#SBATCH --job-name=idl
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o IDL2019log-%j.out
+
+##################
+# Load the modules
+##################
+
+source /usr/share/modules/init/csh
+module purge
+module load tool/idl-8.5
+
+limit vmemoryuse unlimited
+limit stacksize unlimited
+
+idl run_all_scripts
+

@@ -1,0 +1,140 @@
+#!/bin/csh -f
+
+#SBATCH --time=09:50:00
+#SBATCH --job-name=Mscript
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Matlab2019log-%j.out
+
+
+#######################################################################
+#                  System Environment Variables
+#######################################################################
+
+umask 022
+
+limit
+
+source /usr/share/modules/init/csh
+module purge
+
+module load tool/matlab-R2017b
+
+echo '--------------------------------------------------'
+echo 'Matrix Copy'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_copy_matrix(5000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_copy_matrix(7000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_copy_matrix(9000); exit"
+
+echo '--------------------------------------------------'
+echo 'Look and Say Sequence'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_look_and_say(40); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_look_and_say(45); exit"
+#matlab -nodesktop -nojvm -nosplash -r "test_look_and_say(48); exit"
+
+echo '--------------------------------------------------'
+echo 'Count unique words in file'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_count_unique_words('../Data/bible.txt'); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_count_unique_words('../Data/book1.txt'); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_count_unique_words('../Data/plrabn12.txt'); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_count_unique_words('../Data/world192.txt'); exit"
+
+echo '--------------------------------------------------'
+echo 'Fibonacci Sequence'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_fibonacci(25); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_fibonacci(35); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_fibonacci(45); exit"
+
+echo '--------------------------------------------------'
+echo 'Matrix multiplication'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_matrix_multiplication(1500); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_matrix_multiplication(1750); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_matrix_multiplication(2000); exit"
+
+echo '--------------------------------------------------'
+echo 'Belief Propagation'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_belief_propagation(250); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_belief_propagation(500); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_belief_propagation(1000); exit"
+
+echo '--------------------------------------------------'
+echo 'Markov'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_markov_chain(5000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_markov_chain(10000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_markov_chain(15000); exit"
+
+echo '--------------------------------------------------'
+echo 'Compute FFT'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_compute_FFT(10000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_compute_FFT(15000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_compute_FFT(20000); exit"
+
+echo '----------------------------------------------------'
+echo 'Fourth-order Laplace'
+echo '----------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_loops(100); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_loops(150); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_loops(200); exit"
+
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_vect(100); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_vect(150); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_laplace_jacobi_4_vect(200); exit"
+
+echo '--------------------------------------------------'
+echo 'Square Root of Matrix'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_sqrt_matrix(1000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_sqrt_matrix(2000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_sqrt_matrix(4000); exit"
+
+echo '--------------------------------------------------'
+echo 'guass-legendre quadrature'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_gauss_legendre_quadrature(50); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_gauss_legendre_quadrature(75); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_gauss_legendre_quadrature(100); exit"
+
+echo '--------------------------------------------------'
+echo ' evaluate functions'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_evaluate_functions(80000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_evaluate_functions(90000); exit"
+matlab -nodesktop -nojvm -nosplash -r "test_evaluate_functions(100000); exit"
+
+echo '--------------------------------------------------'
+echo 'Munchausen Numbers'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_munchausen_number(); exit"
+
+#echo '----------------------------------------------------'
+#echo 'Age-of-Air Time Series'
+#echo '----------------------------------------------------'
+#
+#time matlab -nodisplay -nodesktop -r "run test_time_series_AOA.m; exit"
+##time matlab -nodisplay -nodesktop -r "run timeSeries_AOA_multicore.m; exit"
+#
+##

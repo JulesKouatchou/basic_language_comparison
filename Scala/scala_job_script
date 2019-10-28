@@ -1,0 +1,123 @@
+#!/bin/csh -f
+
+#SBATCH --time=09:30:00
+#SBATCH --job-name=scala
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Scala2019log-%j.out
+
+
+#######################################################################
+#                  System Environment Variables
+#######################################################################
+
+umask 022
+
+limit
+
+source /usr/share/modules/init/csh
+module purge
+
+setenv JAVA_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+setenv JAVA_BINDIR /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin
+setenv JAVA_ROOT /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+setenv JRE_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre
+setenv JDK_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin:${PATH}
+setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/bin:${PATH}
+
+setenv PATH /usr/local/other/scala/2.13.0/bin:${PATH}
+setenv _JAVA_OPTIONS "-XX:+CMSClassUnloadingEnabled  -Xms1024m -Xmx3G -Xss256m"
+setenv CLASSPATH /discover/nobackup/jkouatch/LearningPython/compareLanguages/scala/scala_lib/*
+
+rm -f *.class
+
+echo '-------------------------'
+echo 'Copy Matrix'
+echo '-------------------------'
+scalac DoCopyMatrix.scala
+scala -cp . DoCopyMatrix 5000
+scala -cp . DoCopyMatrix 7000
+scala -cp . DoCopyMatrix 9000
+
+echo '-------------------------'
+echo 'Look and Say'
+echo '-------------------------'
+scalac DoLookAndSay.scala
+scala -cp . DoLookAndSay 40
+scala -cp . DoLookAndSay 45
+scala -cp . DoLookAndSay 48
+
+echo '-------------------------'
+echo 'Count Unique Words'
+echo '-------------------------'
+scalac DoCountUniqueWords.scala
+scala -cp . DoCountUniqueWords ../Data/world192.txt
+scala -cp . DoCountUniqueWords ../Data/plrabn12.txt
+scala -cp . DoCountUniqueWords ../Data/bible.txt
+scala -cp . DoCountUniqueWords ../Data/book1.txt
+
+echo '-------------------------'
+echo 'Fibonacci Sequence'
+echo '-------------------------'
+scalac DoFibonacci.scala
+scala -cp . DoFibonacci 25
+scala -cp . DoFibonacci 35
+scala -cp . DoFibonacci 45
+
+echo '-------------------------'
+echo 'Matrix Multiplication'
+echo '-------------------------'
+scalac DoMatrixMultiplication.scala
+scala -cp . DoMatrixMultiplication 1500
+scala -cp . DoMatrixMultiplication 1750
+scala -cp . DoMatrixMultiplication 2000
+
+echo '-------------------------'
+echo 'Belief Propagation'
+echo '-------------------------'
+scalac DoBeliefPropagation.scala
+scala -cp . DoBeliefPropagation 250
+scala -cp . DoBeliefPropagation 500
+scala -cp . DoBeliefPropagation 1000
+
+echo '-------------------------'
+echo 'Markov Chain'
+echo '-------------------------'
+scalac DoMarkovChain.scala
+scala -cp . DoMarkovChain 5000
+scala -cp . DoMarkovChain 10000
+scala -cp . DoMarkovChain 15000
+
+echo '-------------------------'
+echo 'Jacobi Iterative solver'
+echo '-------------------------'
+scalac DoLaplaceJacobi4.scala
+scala -cp . DoLaplaceJacobi4 100
+scala -cp . DoLaplaceJacobi4 150
+scala -cp . DoLaplaceJacobi4 200
+
+echo '-------------------------'
+echo 'Evaluate Functions'
+echo '-------------------------'
+scalac DoEvaluateFunctions.scala
+scala -cp . DoEvaluateFunctions 80000
+scala -cp . DoEvaluateFunctions 90000
+scala -cp . DoEvaluateFunctions 100000
+
+#echo '-------------------------'
+#echo 'Gauss Legendre quadrature'
+#echo '-------------------------'
+#scalac DoGaussLegendreQuadrature.scala
+#scala -cp . DoGaussLegendreQuadrature 50
+#scala -cp . DoGaussLegendreQuadrature 75
+#scala -cp . DoGaussLegendreQuadrature 100
+
+echo '-------------------------'
+echo 'Munchausen Numbers'
+echo '-------------------------'
+scalac DoMunchausenNumber.scala
+scala -cp . DoMunchausenNumber

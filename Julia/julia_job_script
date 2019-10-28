@@ -1,0 +1,95 @@
+#!/bin/csh -f
+
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Julia
+#SBATCH --ntasks=28
+#SBATCH --constraint=hasw
+#SBATCH -A k3002
+#SBATCH --mail-type=BEGIN
+#SBATCH --mail-type=END
+#SBATCH -o Julia_2018log-%j.out
+
+
+#######################################################################
+#                  System Environment Variables
+#######################################################################
+
+umask 022
+
+#limit stacksize unlimited
+
+source /usr/share/modules/init/csh
+module purge
+
+###############
+# 2017 Settings
+###############
+#module load other/comp/gcc-5.3-sp3
+#module load other/SSSO_Ana-PyD/SApd_4.2.0_py2.7_gcc-5.3-sp3
+#module load other/julia/0.6_gcc5.3
+
+###############
+# 2018 Settings
+###############
+module load other/comp/gcc-7.3
+module load other/SSSO_Ana-PyD/SApd_5.0.1_py2.7_gcc-7.3
+module load other/julia/0.6.2_gcc7.3
+setenv JULIA_PKGDIR /discover/nobackup/jkouatch/JULIA_PKGDIR/19Feb2018
+
+julia test_copy_matrix.jl 5000
+julia test_copy_matrix.jl 7000
+julia test_copy_matrix.jl 9000
+
+julia test_fibonacci.jl 25
+julia test_fibonacci.jl 35
+julia test_fibonacci.jl 45
+
+julia test_matrix_multiplication.jl 1500 1500 1500
+julia test_matrix_multiplication.jl 1750 1750 1750
+julia test_matrix_multiplication.jl 2000 2000 2000
+
+julia test_belief_propagation.jl 250
+julia test_belief_propagation.jl 500
+julia test_belief_propagation.jl 1000
+
+julia test_markov_chain.jl 5000
+julia test_markov_chain.jl 10000
+julia test_markov_chain.jl 15000
+
+julia test_compute_FFT.jl 10000
+julia test_compute_FFT.jl 15000
+julia test_compute_FFT.jl 20000
+
+julia test_laplace_jacobi_4.jl 100
+julia test_laplace_jacobi_4.jl 150
+julia test_laplace_jacobi_4.jl 200
+
+julia test_gauss_legendre_quadrature.jl 50
+julia test_gauss_legendre_quadrature.jl 75
+julia test_gauss_legendre_quadrature.jl 100
+
+julia test_evaluate_functions.jl 80000
+julia test_evaluate_functions.jl 90000
+julia test_evaluate_functions.jl 100000
+
+julia test_munchausen.jl
+
+julia test_sqrt_matrix.jl 1000
+julia test_sqrt_matrix.jl 2000
+julia test_sqrt_matrix.jl 4000
+
+julia count_unique_words.jl ../Data/bible.txt
+julia count_unique_words.jl ../Data/book1.txt
+julia count_unique_words.jl ../Data/plrabn12.txt
+julia count_unique_words.jl ../Data/world192.txt
+
+#julia test_time_series_AOA.jl
+
+#time julia -p 1 test_time_series_AOA_multiprocessing.jl
+#time julia -p 2 test_time_series_AOA_multiprocessing.jl
+#time julia -p 4 test_time_series_AOA_multiprocessing.jl
+#time julia -p 8 test_time_series_AOA_multiprocessing.jl
+#time julia -p 16 test_time_series_AOA_multiprocessing.jl
+#time julia -p 24 test_time_series_AOA_multiprocessing.jl
+#time julia -p 28 test_time_series_AOA_multiprocessing.jl
+
