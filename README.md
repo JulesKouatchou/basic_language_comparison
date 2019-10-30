@@ -194,6 +194,8 @@ It also has sample text files for the **Count Unique Words in a File** test case
 
 ## <font color="red">Results</font>
 
+**September 2019**
+
 ![Histogram (Sep2019](Plots/fig_languages_histo_Sep2019.png)
 
 ![Scatter Plot (Sep2019](Plots/fig_languages_scatter_Sep2019.png)
