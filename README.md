@@ -192,3 +192,8 @@ It also has sample text files for the **Count Unique Words in a File** test case
        The goal is to be able to do a generate the three-diemsional arrays
        (year/level/value) and carry out a contour plot.
 
+## <font color="red">Results</font>
+
+![Histogram (Sep2019](Plots/fig_languages_histo_Sep2019.png)
+
+![Scatter Plot (Sep2019](Plots/fig_languages_scatter_Sep2019.png)
