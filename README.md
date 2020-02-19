@@ -7,6 +7,8 @@
 - Jules Kouatchou (Jules.Kouatchou@nasa.gov)
 - Alexander Medema
 
+[![DOI](https://zenodo.org/badge/193141392.svg)](https://zenodo.org/badge/latestdoi/193141392)
+
 ---
 
 We use simple test cases to compare various high level programming languages
