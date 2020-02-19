@@ -27,7 +27,15 @@ function find_munchausen_numbers()
    num = 0
    i = 0
    while num < 4
-         if (i == sum(power_of_digits[x+1] for x in digits(i)))
+         thisnumber = i
+         # find the sum of the digits raised to themselves
+         sumofpowers = 0
+         while thisnumber > 0
+               digit = thisnumber % 10
+               sumofpowers += power_of_digits[digit+1]
+               thisnumber ÷= 10
+         end
+         if i == sumofpowers
             num += 1
             println("Munchausen number: ", num, " ", i)
          end
