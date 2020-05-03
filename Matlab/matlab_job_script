@@ -21,7 +21,7 @@ limit
 source /usr/share/modules/init/csh
 module purge
 
-module load tool/matlab-R2017b
+module load matlab/R2020a
 
 echo '--------------------------------------------------'
 echo 'Matrix Copy'

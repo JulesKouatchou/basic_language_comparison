@@ -207,6 +207,37 @@ It also has sample text files for the **Count Unique Words in a File** test case
 
 **September 2019**
 
+
+| Language | Version |
+| --- | --- |
+| Python | 3.7 |
+| Julia | 0.6.2 |
+| Java | 10.0.2 |
+| Scala	| 2.13.0 |
+| IDL | 8.5 |
+| R |	3.6.1 |
+| Matlab | R2017b |
+| GNU Compilers | 9.1 |
+
+
 ![Histogram (Sep2019](Plots/fig_languages_histo_Sep2019.png)
 
 ![Scatter Plot (Sep2019](Plots/fig_languages_scatter_Sep2019.png)
+
+**May 2020**
+
+| Language | Version |
+| --- | --- |
+| Python | 3.7 |
+| Numba | 0.45.1 |
+| Julia | 1.2 |
+| Java | 13.0.1 |
+| Scala | 2.13.2 |
+| IDL | 8.5 |   
+| R |   3.6.3 | 
+| Matlab | R2020a |
+| GNU Compilers | 9.3.0 |
+
+![Histogram (May2020](Plots/fig_languages_histo_May2020.png)
+
+![Scatter Plot (May2020](Plots/fig_languages_scatter_May2020.png)

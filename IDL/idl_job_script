@@ -14,7 +14,7 @@
 
 source /usr/share/modules/init/csh
 module purge
-module load tool/idl-8.5
+module load idl/8.5
 
 limit vmemoryuse unlimited
 limit stacksize unlimited

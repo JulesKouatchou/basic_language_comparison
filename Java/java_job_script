@@ -21,13 +21,20 @@ limit
 source /usr/share/modules/init/csh
 module purge
 
-setenv JAVA_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
-setenv JAVA_BINDIR /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin
-setenv JAVA_ROOT /usr/local/other/SLES11.1/jdk/jdk-10.0.2
-setenv JRE_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre
-setenv JDK_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
-setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin:${PATH}
-setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/bin:${PATH}
+setenv JAVA_HOME /discover/swdev/mathomp4/other/SLES12.3/OpenJDK/jdk-13.0.1/
+setenv JAVA_BINDIR $JAVA_HOME/bin
+setenv JAVA_ROOT $JAVA_HOME
+setenv JRE_HOME $JAVA_HOME
+setenv JDK_HOME $JAVA_HOME
+setenv PATH $JAVA_HOME/bin:${PATH}
+
+#setenv JAVA_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+#setenv JAVA_BINDIR /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin
+#setenv JAVA_ROOT /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+#setenv JRE_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre
+#setenv JDK_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
+#setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin:${PATH}
+#setenv PATH /usr/local/other/SLES11.1/jdk/jdk-10.0.2/bin:${PATH}
 
 rm -f *.class
 

@@ -1,4 +1,5 @@
 using BenchmarkTools
+using Printf
 
 
 """
@@ -8,7 +9,8 @@ Evaluates trigonometric functions on N values spaced
 evenly between -1500.0 and 1500.0.
 """
 function evaluatefunctions(N)
-    x = linspace(-1500.0, 1500.0, N)
+    #x = linspace(-1500.0, 1500.0, N)
+    x = range(-1500.0, stop=1500.0, length=N)
     M = 10000
     for i in 1:M
         y = sin.(x)

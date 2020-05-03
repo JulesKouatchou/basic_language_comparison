@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 
-from numba import jit
+from numba import njit
 import sys
 import benchmark_decorator as dectimer
 
@@ -10,7 +10,7 @@ import benchmark_decorator as dectimer
 # Function: iterative_fibonacci
 #------------------------------
 @dectimer.bench_time(3)
-@jit
+@njit
 def iterative_fibonacci(n):
     """
         Find the Fibonacci number of order n by iteration
@@ -28,7 +28,7 @@ def iterative_fibonacci(n):
 # Function: recursive_fibonacci
 #------------------------------
 @dectimer.bench_time_recursive(3)
-@jit
+@njit
 def recursive_fibonacci(n):
     """
         Find the Fibonacci number of order n by recursion
@@ -51,6 +51,6 @@ print('Numba -- Fibonacci sequence of size: ', N)
 
 n1 = iterative_fibonacci(N)
 
-n2 = recursive_fibonacci(N)
+#n2 = recursive_fibonacci(N)
 
 print(' ')

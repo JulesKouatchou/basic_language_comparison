@@ -1,5 +1,6 @@
 
 using BenchmarkTools
+using Printf
 
 
 # Get the dimension from the command line.

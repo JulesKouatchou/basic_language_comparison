@@ -20,7 +20,7 @@ limit
 
 source /usr/share/modules/init/csh
 module purge
-module load other/R-3.6.1
+module load R/3.6.3
 setenv R_LIBS /discover/nobackup/jkouatch/LearningPython/compareLanguages/refSourceFiles/R/locPACKAGES
 
 echo '-------------------------'

@@ -14,13 +14,13 @@ from __future__ import print_function
 
 import numpy as np
 import sys
-from numba import jit
-import decorator_timer as dectimer
+from numba import njit
+import benchmark_decorator as dectimer
 
 #--------------------------
 # Functtion: loop_time_step
 #--------------------------
-@jit
+@njit
 def loop_time_step(u):
     """
         Take a time step in the desired numerical solution u found
@@ -46,7 +46,7 @@ def loop_time_step(u):
 #--------------------------
 # Functtion: loop_solver
 #--------------------------
-@dectimer.time_function
+@dectimer.bench_time(3)
 def loop_solver(n):
     """
         Find the desired numerical solution u using loops
@@ -66,19 +66,20 @@ def loop_solver(n):
     iteration = 0
     error = 2
     while(iteration < 100000 and error > 1e-6):
-        (u, error) = loop_time_step(u)
+        u, error = loop_time_step(u)
         iteration += 1
-    return (u, error, iteration)
+    return u, error, iteration
 
 #----------------------------
 # Functtion: vector_time_step
 #----------------------------
-@jit
+@njit
 def vector_time_step(u):
     """
         Take a time step in the desired numerical solution v found
         using vectorization
     """
+    n, m = u.shape
     u_old = u.copy()
     u[1:-1, 1:-1] = (
                      (u[0:-2, 1:-1] + u[2:, 1:-1] + u[1:-1, 0:-2] +
@@ -86,13 +87,12 @@ def vector_time_step(u):
                      u[0:-2, 0:-2] + u[0:-2, 2:] + u[2:, 0:-2] + u[2:, 2:]
     )/20.0
 
-    v = (u - u_old).flat
-    return u, np.sqrt(np.dot(v, v))
+    return u, np.linalg.norm(u-u_old)
 
 #-----------------------------
 # Functtion: vectorized_solver
 #-----------------------------
-@dectimer.time_function
+@dectimer.bench_time(3)
 def vectorized_solver(n):
     """
         Find the desired numerical solution v using vectorization
@@ -112,9 +112,9 @@ def vectorized_solver(n):
     iteration = 0
     error = 2
     while(iteration < 100000 and error > 1e-6):
-        (u, error) = vector_time_step(u)
+        u, error = vector_time_step(u)
         iteration += 1
-    return (u, error, iteration)
+    return u, error, iteration
 
 
 # number of grid points
@@ -122,8 +122,7 @@ num_points = int(sys.argv[1])
 
 print("Numba -- Jacobi solver for Laplace Equation: ", num_points)
 
-(u, error, iteration) = loop_solver(num_points)
-
-(u, error, iteration) = vectorized_solver(num_points)
+u, error, iteration = loop_solver(num_points)
+u, error, iteration = vectorized_solver(num_points)
 
 print(' ')

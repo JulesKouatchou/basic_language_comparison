@@ -20,8 +20,8 @@ umask 022
 source /usr/share/modules/init/csh
 module purge
  
-module load other/comp/gcc-9.1
-module load comp/intel-18.0.5.274
+module load comp/gcc/9.3.0
+module load comp/intel/20.0.0.166
 
 rm -f *.exe
 

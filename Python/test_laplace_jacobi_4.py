@@ -83,8 +83,7 @@ def vector_time_step(u):
                      u[0:-2, 0:-2] + u[0:-2, 2:] + u[2:, 0:-2] + u[2:, 2:]
     )/20.0
 
-    v = (u - u_old).flat
-    return u, np.sqrt(np.dot(v, v))
+    return u, np.linalg.norm(u-u_old)
 
 #----------------------------
 # Function: vectorized_solver

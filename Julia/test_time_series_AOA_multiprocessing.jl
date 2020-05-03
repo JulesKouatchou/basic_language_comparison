@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 using BenchmarkTools
+using Printf
 using NetCDF
 @everywhere using NetCDF
 

@@ -1,5 +1,5 @@
 using BenchmarkTools
-
+using Printf
 
 # Get the matrix dimensions N from the command line argument.
 N = parse(Int, ARGS[1])
@@ -10,10 +10,10 @@ for i = 1:N
 end
 
 println("--------------------------")
-println(@sprintf "Matric square root: %d" N)
+println(@sprintf "Matrix square root: %d" N)
 println("--------------------------")
 
 # Take the square root of matrix A.
 @btime begin
-    B = sqrtm(A)
+    B = sqrt(A)
 end 

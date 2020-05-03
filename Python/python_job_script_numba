@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
-#SBATCH --time=01:30:00
-#SBATCH --job-name=numpy
+#SBATCH --time=02:30:00
+#SBATCH --job-name=python_numba
 #SBATCH --ntasks=28
 #SBATCH --constraint=hasw
 #SBATCH -A a930b
@@ -21,12 +21,7 @@ limit
 source /usr/share/modules/init/csh
 module purge
 
-module load other/comp/gcc-7.3
-module load other/SSSO_Ana-PyD/SApd_5.0.1_py2.7_gcc-7.3
-
-setenv workDIR /discover/nobackup/jkouatch/LearningPython/compareLanguages/refSourceFiles/Python
-
-cd $workDIR
+module load python/GEOSpyD/Ana2019.10_py3.7
 
 echo '-------------------------'
 echo 'Numba - Copy of matrix'
@@ -43,11 +38,18 @@ python test_matrix_multiplication_numba.py 1750
 python test_matrix_multiplication_numba.py 2000
 
 echo '-------------------------'
+echo 'Numba Belief Propagation'
+echo '-------------------------'
+python test_belief_propagation_numba.py 250
+python test_belief_propagation_numba.py 500
+python test_belief_propagation_numba.py 1000
+
+echo '-------------------------'
 echo 'Numba - Fibonacci Sequence'
 echo '-------------------------'
 python test_fibonacci_numba.py 25
 python test_fibonacci_numba.py 35
-#python test_fibonacci_numba.py 45
+python test_fibonacci_numba.py 45
 
 echo '-------------------------'
 echo 'Numba - Jacobi iterative solver'
@@ -55,4 +57,11 @@ echo '-------------------------'
 python test_laplace_jacobi_4_numba.py 100
 python test_laplace_jacobi_4_numba.py 150
 python test_laplace_jacobi_4_numba.py 200
+
+echo '-------------------------'
+echo ' Numba Evaluation of functions'
+echo '-------------------------'
+python test_evaluate_functions_numba.py  80000
+python test_evaluate_functions_numba.py  90000
+python test_evaluate_functions_numba.py 100000
 

@@ -4,23 +4,26 @@ from __future__ import print_function
 
 import numpy as np
 import sys
-from numba import jit
+import numba as nb
+from numba import njit
+from numba import prange
 import benchmark_decorator as dectimer
 
 #--------------------------------
 # Function: matrix_multiplication
 #--------------------------------
 @dectimer.bench_time(3)
-@jit
+@njit(parallel=True)
 def matrix_multiplication(A, B):
     """
         Multiply matrices A and B using a loop
     """
-    n = len(A[0])
-    C = np.zeros((n, n))
-    for i in range(n):
-        for j in range(n):
-            for k in range(n):
+    m, n = A.shape
+    p = B.shape[1]
+    C = np.zeros((m, p))
+    for i in prange(m):
+        for j in prange(p):
+            for k in prange(n):
                 C[i, j] += A[i, k]*B[k, j]
 
 

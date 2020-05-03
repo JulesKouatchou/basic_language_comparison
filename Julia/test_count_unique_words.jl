@@ -1,10 +1,12 @@
-
+using Printf
 using BenchmarkTools
-
+using LegacyStrings
 
 fullstrip(str::AbstractString, chars::AbstractString) = replace(str, Regex("[$chars]") => "")
 
-punctuation_characters = ASCIIString("~\`!@#$%^&*()_-+=[{]}\\|;:',<.>/?1234567890")
+punctuation_characters = r"~\`!@#$%^&*()_-+=[{]}\\|;:',<.>/?1234567890"
+#punctuation_characters = String("~\`!@#$%^&*()_-+=[{]}\\|;:',<.>/?1234567890")
+#punctuation_characters = ASCIIString("~\`!@#$%^&*()_-+=[{]}\\|;:',<.>/?1234567890")
 #punctuation_characters = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
 
 """

@@ -2,6 +2,7 @@
 
 using BenchmarkTools
 using NetCDF
+using Printf
 
 """
     calculate_pressure_levels(numlevels)

@@ -1,5 +1,7 @@
 using BenchmarkTools
-
+using Printf
+using Random
+using LinearAlgebra
 
 # Get the number of iterations from the command line.
 n, = size(ARGS)
@@ -19,11 +21,11 @@ Runs the belief propagation algorithm N times.
 function beliefpropagation(N)
     dim = 5000
     x = ones(dim)
-    A = (randn(dim,dim) + 1.0)/2.0
+    A = (randn(dim,dim) .+ 1.0)/2.0
 
     for i = 1:N
         x = log.(A*exp.(x));
-        x -= log.(sum(exp.(x)));
+        x .-= log.(sum(exp.(x)));
     end
     x
 end

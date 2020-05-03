@@ -1,4 +1,6 @@
 using BenchmarkTools
+using Printf
+using LinearAlgebra
 
 # Get the number of iterations from the command line
 n, = size(ARGS)
@@ -17,8 +19,10 @@ Finds the approximate integral over the region [a, b]
 with N iterations.
 """
 function gauss(a, b, N)
-    lambda, Q = eig(SymTridiagonal(zeros(N), [n/sqrt(4n^2 - 1) for n = 1:N-1]))
-    return (lambda+1)*(b-a)/2 + a, [2*Q[1, i]^2 for i = 1:N]*(b-a)/2
+    F = eigen(SymTridiagonal(zeros(N), [n/sqrt(4n^2 - 1) for n = 1:N-1]))
+    return [(F.values[i]+1)*(b-a)/2 + a for i = 1:N], [2*F.vectors[1, i]^2 for i = 1:N]*(b-a)/2
+    #lambda, Q = eig(SymTridiagonal(zeros(N), [n/sqrt(4n^2 - 1) for n = 1:N-1]))
+    #return (lambda+1)*(b-a)/2 + a, [2*Q[1, i]^2 for i = 1:N]*(b-a)/2
 end
 
 

@@ -12,7 +12,7 @@ def serial_copy(A):
     """
         Perform copies of elements in matrix A iteratively
     """
-    N = np.size(A, 0)
+    N = A.shape[0]
     for i in range(N):
         for j in range(N):
             A[i, j, 0] = A[i, j, 1]

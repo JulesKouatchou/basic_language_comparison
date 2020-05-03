@@ -4,26 +4,27 @@ from __future__ import print_function
 
 import numpy as np
 import sys
-from numba import jit
+from numba import njit
+from numba import prange
 import benchmark_decorator as dectimer
 
 
 @dectimer.bench_time(3)
-@jit
+@njit
 def serial_copy(A):
     """
         Perform copies of elements in matrix A iteratively
     """
-    N = np.size(A, 0)
-    for i in range(N):
-        for j in range(N):
+    N = A.shape[0]
+    for i in prange(N):
+        for j in prange(N):
             A[i, j, 0] = A[i, j, 1]
             A[i, j, 2] = A[i, j, 0]
             A[i, j, 1] = A[i, j, 2]
 
 
 @dectimer.bench_time(3)
-@jit
+@njit
 def vector_copy(A):
     """
         Perform copies of of elements in matrix A with vectorization

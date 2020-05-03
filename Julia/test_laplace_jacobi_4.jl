@@ -5,7 +5,8 @@ Sections of the code below were proposed by Simon Danisch:
 =#
 
 using BenchmarkTools
-
+using Printf
+using LinearAlgebra
 
 """
     regular_time_step(u::Matrix)
@@ -30,13 +31,13 @@ function regular_time_step(u::Matrix)
     return sqrt(error)
 end
 
-
 """
     optimized_time_step{T}(u::Matrix{T})
 
 Take a time step in the Jacobi numerical approximation u using optimized loops.
 """
-function optimized_time_step{T}(u::Matrix{T})
+#function optimized_time_step{T}(u::Matrix{T}) 
+function optimized_time_step(u::Matrix{T})  where {T}
     n, m = size(u)
     error = T(0.0) # not an optimization, but makes it work for all element types
     @inbounds for i = 2:n-1
@@ -53,13 +54,13 @@ function optimized_time_step{T}(u::Matrix{T})
     return sqrt(error)
 end
 
-
 """
-    optimized_time_step{T}(u::Matrix{T})
+    optimized_time_step_simd{T}(u::Matrix{T})
 
 Take a time step in the Jacobi numerical approximation u using optimized loops and SIMD.
 """
-function optimized_time_step_simd{T}(u::Matrix{T})
+#function optimized_time_step_simd{T}(u::Matrix{T})
+function optimized_time_step_simd(u::Matrix{T}) where {T}
     n, m = size(u)
     error = T(0.0) # not an optimization, but makes it work for all element types
     @inbounds for i = 2:n-1

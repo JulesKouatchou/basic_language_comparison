@@ -16,7 +16,7 @@ params = {'legend.fontsize': 'x-large',
          'ytick.labelsize':'x-large'}
 pylab.rcParams.update(params)
 
-month="Sep2019"
+month="May2020"
 
 def get_timing(lang, test):
     result = None
@@ -28,7 +28,7 @@ def get_timing(lang, test):
                 break
     return result
 
-languages = ["C", "Fortran", "Python", "Julia", "IDL", "Matlab", "R", "Java", "Scala"]
+languages = ["C", "Fortran", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Scala"]
 
 test_cases = ["copy_matrix", "look_and_say", "iterative_fibonacci", "recursive_fibonacci", "matrix_multiplication", "evaluate_functions", "belief_propagation", "markov_chain", "laplace_equation", "munchauser_number"]
 
@@ -61,7 +61,7 @@ for j in range(num_test):
 
 data_sets = [A[j,:] for j in range(num_lang)]
 
-colors = ["blue", "orange", "green", "purple", "red", "pink", "olive", "brown", "gray"]
+colors = ["blue", "orange", "green", "yellow", "purple", "red", "pink", "olive", "brown", "gray"]
 fig, ax = plt.subplots(figsize=(15.0, 7.0))
 pos = np.arange(num_test)
 bar_width = 0.085

@@ -1,6 +1,6 @@
 #!/bin/csh -f
 
-#SBATCH --time=07:00:00
+#SBATCH --time=07:50:00
 #SBATCH --job-name=numpy
 #SBATCH --ntasks=28
 #SBATCH --constraint=hasw
@@ -21,7 +21,7 @@ umask 022
 source /usr/share/modules/init/csh
 module purge
 
-module load other/python/GEOSpyD/Ana2019.03_py3.7
+module load python/GEOSpyD/Ana2019.10_py3.7
 
 
 echo '-------------------------'
@@ -31,12 +31,12 @@ python test_copy_matrix.py 5000
 python test_copy_matrix.py 7000
 python test_copy_matrix.py 9000
 
-#echo '-------------------------'
-#echo 'Numba - Copy of matrix'
-#echo '-------------------------'
-#python test_copy_matrix_numba.py 5000
-#python test_copy_matrix_numba.py 7000
-#python test_copy_matrix_numba.py 9000
+echo '-------------------------'
+echo 'Numba - Copy of matrix'
+echo '-------------------------'
+python test_copy_matrix_numba.py 5000
+python test_copy_matrix_numba.py 7000
+python test_copy_matrix_numba.py 9000
 
 echo '-------------------------'
 echo 'Look and say sequence'
@@ -60,12 +60,12 @@ python test_fibonacci.py 25
 python test_fibonacci.py 35
 python test_fibonacci.py 45
 
-#echo '-------------------------'
-#echo 'Numba - Fibonacci Sequence'
-#echo '-------------------------'
-#python test_fibonacci_numba.py 25
-#python test_fibonacci_numba.py 35
-#python test_fibonacci_numba.py 45
+echo '-------------------------'
+echo 'Numba - Fibonacci Sequence'
+echo '-------------------------'
+python test_fibonacci_numba.py 25
+python test_fibonacci_numba.py 35
+python test_fibonacci_numba.py 45
 
 echo '-------------------------'
 echo 'Matrix Multiplication'
@@ -74,12 +74,12 @@ python test_matrix_multiplication.py 1500
 python test_matrix_multiplication.py 1750
 python test_matrix_multiplication.py 2000
 
-#echo '-------------------------'
-#echo 'Numba - matrix multiplication'
-#echo '-------------------------'
-#python test_matrix_multiplication_numba.py 1500
-#python test_matrix_multiplication_numba.py 1750
-#python test_matrix_multiplication_numba.py 2000
+echo '-------------------------'
+echo 'Numba - matrix multiplication'
+echo '-------------------------'
+python test_matrix_multiplication_numba.py 1500
+python test_matrix_multiplication_numba.py 1750
+python test_matrix_multiplication_numba.py 2000
 
 echo '-------------------------'
 echo 'Belief Propagation'
@@ -109,12 +109,12 @@ python test_laplace_jacobi_4.py 100
 python test_laplace_jacobi_4.py 150
 python test_laplace_jacobi_4.py 200
 
-#echo '-------------------------'
-#echo 'Numba - Jacobi iterative solver'
-#echo '-------------------------'
-#python test_laplace_jacobi_4_numba.py 100
-#python test_laplace_jacobi_4_numba.py 150
-#python test_laplace_jacobi_4_numba.py 200
+echo '-------------------------'
+echo 'Numba - Jacobi iterative solver'
+echo '-------------------------'
+python test_laplace_jacobi_4_numba.py 100
+python test_laplace_jacobi_4_numba.py 150
+python test_laplace_jacobi_4_numba.py 200
 
 echo '-------------------------'
 echo 'Compute square root of a matrix'
@@ -135,6 +135,13 @@ echo '-------------------------'
 python test_evaluate_functions.py  80000
 python test_evaluate_functions.py  90000
 python test_evaluate_functions.py 100000
+
+echo '-------------------------'
+echo ' Numba Evaluation of functions'
+echo '-------------------------'
+python test_evaluate_functions_numba.py  80000
+python test_evaluate_functions_numba.py  90000
+python test_evaluate_functions_numba.py 100000
 
 echo '-------------------------'
 echo 'Compute Munchausen Numbers'

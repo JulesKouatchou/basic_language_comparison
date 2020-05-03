@@ -1,4 +1,5 @@
 using BenchmarkTools
+using Printf
 
 # Get the number of iterations from the command line
 n, = size(ARGS)

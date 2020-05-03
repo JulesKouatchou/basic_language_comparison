@@ -1,4 +1,6 @@
 using BenchmarkTools
+using Printf
+using FFTW
 
 
 # Get the number of data points N from the command line.
