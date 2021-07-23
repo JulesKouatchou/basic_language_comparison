@@ -23,12 +23,12 @@ to claim that one language is better than the others.
 
 ## <font color="red">Background Information</font>
 
-Check the following webpages to obtain background information on this
+Check the following docyments to obtain background information on this
 project:
 
-* <a href="https://modelingguru.nasa.gov/docs/DOC-2625">2017</a>
-* <a href="https://modelingguru.nasa.gov/docs/DOC-2676">2018</a>
-* <a href="https://modelingguru.nasa.gov/docs/DOC-2783">2019</a>
+* [2017](docs/2017edition.pdf)
+* [2018](docs/2018edition.pdf)
+* [2019](docs/2019edition.pdf)
 
 ## <font color="red">List of Test Cases</font>
 
