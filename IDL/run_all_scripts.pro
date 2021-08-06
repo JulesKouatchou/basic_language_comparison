@@ -40,7 +40,10 @@ test_evaluate_functions, 80000
 test_evaluate_functions, 90000
 test_evaluate_functions, 100000
 
+test_pernicious_numbers, 100000
+
 test_munchausen_number
+
 
 ;test_time_series_aoa
 

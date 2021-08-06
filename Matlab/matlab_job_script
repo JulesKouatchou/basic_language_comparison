@@ -2,12 +2,12 @@
 
 #SBATCH --time=09:50:00
 #SBATCH --job-name=Mscript
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Matlab2019log-%j.out
+#SBATCH -o Matlab2021log-%j.out
 
 
 #######################################################################
@@ -129,6 +129,13 @@ echo 'Munchausen Numbers'
 echo '--------------------------------------------------'
 
 matlab -nodesktop -nojvm -nosplash -r "test_munchausen_number(); exit"
+
+echo '--------------------------------------------------'
+echo 'Pernicious Numbers'
+echo '--------------------------------------------------'
+
+matlab -nodesktop -nojvm -nosplash -r "test_pernicious_numbers(100000); exit"
+
 
 #echo '----------------------------------------------------'
 #echo 'Age-of-Air Time Series'

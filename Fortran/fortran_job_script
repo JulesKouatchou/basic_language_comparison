@@ -2,18 +2,18 @@
 
 #SBATCH --time=03:20:00
 #SBATCH --job-name=fortran
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Fortran2019log-%j.out
+#SBATCH -o Fortran2021log-%j.out
 
 source /usr/share/modules/init/csh
 module purge
  
-module load comp/gcc/9.3.0
-module load comp/intel/20.0.0.166
+module load comp/gcc/11.1.0
+module load comp/intel/2021.2.0
 
 rm -f *.exe
 
@@ -458,3 +458,37 @@ echo '----------------------------------------------------'
 ifort -O3 test_munchausen_number.F90 -o test_munchausen_number-ifo.exe
 
 ./test_munchausen_number-ifo.exe
+
+echo '----------------------------------------------------'
+echo 'gfortran - Pernicious Number: Regular'
+echo '----------------------------------------------------'
+
+gfortran test_pernicious_numbers.F90 -o test_pernicious_numbers-gfr.exe
+
+./test_pernicious_numbers-gfr.exe 100000
+
+echo '----------------------------------------------------'
+echo 'gfortran - Pernicious Number: Optimized'
+echo '----------------------------------------------------'
+
+gfortran -O3 test_pernicious_numbers.F90 -o test_pernicious_numbers-gfo.exe
+
+./test_pernicious_numbers-gfo.exe 100000
+
+echo '----------------------------------------------------'
+echo 'ifort - Pernicious Number: Regular'
+echo '----------------------------------------------------'
+
+ifort test_pernicious_numbers.F90 -o test_pernicious_numbers-ifr.exe
+
+./test_pernicious_numbers-ifr.exe 100000
+
+echo '----------------------------------------------------'
+echo 'ifort - Pernicious Number: Optimized'
+echo '----------------------------------------------------'
+
+ifort -O3 test_pernicious_numbers.F90 -o test_pernicious_numbers-ifo.exe
+
+./test_pernicious_numbers-ifo.exe 100000
+
+rm -f *.exe *.o

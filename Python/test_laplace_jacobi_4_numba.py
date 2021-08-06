@@ -15,6 +15,7 @@ from __future__ import print_function
 import numpy as np
 import sys
 from numba import njit
+from numba import prange
 import benchmark_decorator as dectimer
 
 #--------------------------
@@ -29,8 +30,8 @@ def loop_time_step(u):
     n, m = u.shape
 
     error = 0.0
-    for i in range(1, n-1):
-        for j in range(1, m-1):
+    for i in prange(1, n-1):
+        for j in prange(1, m-1):
             temp = u[i, j]
             u[i, j] = (
                        (u[i-1, j] + u[i+1, j] + u[i, j-1] + u[i, j+1])*4.0 +

@@ -2,12 +2,12 @@
 
 #SBATCH --time=03:10:00
 #SBATCH --job-name=C_test
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o C2019log-%j.out
+#SBATCH -o C2021log-%j.out
 
 
 #######################################################################
@@ -384,3 +384,41 @@ echo '--------------------------------------------------'
 icc -Ofast test_munchausen_number.c -o test_munchausen_number-ico.exe -lm
 
 ./test_munchausen_number-ico.exe
+
+
+echo '--------------------------------------------------'
+echo 'gcc - Pernicious Number: Regular'
+echo '--------------------------------------------------'
+
+gcc test_pernicious_numbers.c -o test_pernicious_numbers-gcr.exe -lm
+
+./test_pernicious_numbers-gcr.exe 100000
+
+echo '--------------------------------------------------'
+echo 'gcc - Pernicious Number: Optimized'
+echo '--------------------------------------------------'
+
+gcc -Ofast test_pernicious_numbers.c -o test_pernicious_numbers-gco.exe -lm
+
+./test_pernicious_numbers-gco.exe 100000
+
+echo '--------------------------------------------------'
+echo 'icc - Pernicious Number: Regular'
+echo '--------------------------------------------------'
+
+icc test_pernicious_numbers.c -o test_pernicious_numbers-icr.exe -lm
+
+./test_pernicious_numbers-icr.exe 100000
+
+echo '--------------------------------------------------'
+echo 'icc - Pernicious Number: Optimized'
+echo '--------------------------------------------------'
+
+icc -Ofast test_pernicious_numbers.c -o test_pernicious_numbers-ico.exe -lm
+
+./test_pernicious_numbers-ico.exe 100000
+
+echo '__________________________________________________'
+echo 'Delete all executables'
+echo '__________________________________________________'
+rm -f *exe

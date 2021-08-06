@@ -182,6 +182,17 @@ It also has sample text files for the **Count Unique Words in a File** test case
         raised to each digit's power. In base 10, there are four such numbers: 
         0, 1, 3435 and 438579088. We determine how much time it takes to find them.
 
+ * **Pernicious Numbers**
+
+        A pernicious number is a positive integer which has prime number of ones in 
+        its binary representation. The first pernicious number is 3 since 
+        3 = (11)(in binary representation) and 1 + 1 = 2, which is a prime. 
+        The first 10 pernicious numbers are:
+            
+            3, 5, 6, 7, 9, 10, 11, 12, 13, 14
+            
+        We determine the 100000th pernicious number, i.e., the integer 323410.
+
 ### Input/Output
 
  * **Reading a Large Collection of Files**
@@ -241,3 +252,26 @@ It also has sample text files for the **Count Unique Words in a File** test case
 ![Histogram (May2020](Plots/fig_languages_histo_May2020.png)
 
 ![Scatter Plot (May2020](Plots/fig_languages_scatter_May2020.png)
+
+
+**August 2021**
+
+| Language | Version |
+| --- | --- |
+| Python | 3.9 |
+| Numba | 0.53.1 |
+| Julia | 1.6.2 |
+| Java | 15 |
+| Scala |  |
+| IDL | 8.5 |
+| R |   4.1.0 |
+| Matlab | R2020a |
+| GNU Compilers | 11.1.0 |
+
+- The pernicious number test case was added.
+- All the calculations were done in an Intel Xeon Skylake node (40 cores, 2.4 Ghz per core, 4 Gb of memory per core).
+
+![Histogram (Aug2021](Plots/fig_languages_histo_Aug2021.png)
+
+![Scatter Plot (Aug2021](Plots/fig_languages_scatter_Aug2021.png)
+

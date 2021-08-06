@@ -1,12 +1,12 @@
 #! /bin/csh -f
 #SBATCH --time=07:30:00
 #SBATCH --job-name=idl
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o IDL2019log-%j.out
+#SBATCH -o IDL2021log-%j.out
 
 ##################
 # Load the modules

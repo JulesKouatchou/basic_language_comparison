@@ -4,6 +4,7 @@ from __future__ import print_function
 import numpy as np
 import sys
 from numba import njit
+from numba import prange
 import benchmark_decorator as dectimer
 
 @dectimer.bench_time(3)
@@ -16,7 +17,7 @@ def belief_propagation(N):
     A = np.random.rand(dim, dim)
     x = np.ones((dim,))
 
-    for i in range(N):
+    for i in prange(N):
         x = np.log(np.dot(A, np.exp(x)))
         x -= np.log(np.sum(np.exp(x)))
     return x

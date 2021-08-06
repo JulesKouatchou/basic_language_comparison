@@ -2,12 +2,12 @@
 
 #SBATCH --time=04:00:00
 #SBATCH --job-name=Julia
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Julia_2018log-%j.out
+#SBATCH -o Julia_2021log-%j.out
 
 
 #######################################################################
@@ -29,12 +29,18 @@ module purge
 #module load other/julia/0.6.2_gcc7.3
 #setenv JULIA_PKGDIR /discover/nobackup/jkouatch/JULIA_PKGDIR/19Feb2018
 
+## SLES12
+#module load comp/gcc/9.3.0
+#setenv PATH /usr/local/other/julia/1.2/bin:$PATH
+#setenv LD_LIBRARY_PATH /usr/local/other/julia/1.2/lib:$LD_LIBRARY_PATH
+#setenv JULIA_DEPOT_PATH /gpfsm/dnb32/jkouatch/JULIA_PKGDIR/SLES12/30April2020
+
 # SLES12
-module load comp/gcc/9.3.0
-setenv PATH /usr/local/other/julia/1.2/bin:$PATH
-setenv LD_LIBRARY_PATH /usr/local/other/julia/1.2/lib:$LD_LIBRARY_PATH
-setenv JULIA_DEPOT_PATH /gpfsm/dnb32/jkouatch/JULIA_PKGDIR/SLES12/30April2020
-#setenv JULIA_PKGDIR /discover/nobackup/jkouatch/JULIA_PKGDIR/30April2020
+module load comp/gcc/11.1.0
+module load julia/1.6.2
+#setenv PATH /usr/local/other/julia/1.6.2/bin:$PATH
+#setenv LD_LIBRARY_PATH /usr/local/other/julia/1.6.2/lib:$LD_LIBRARY_PATH
+setenv JULIA_DEPOT_PATH /discover/nobackup/jkouatch/JULIA_PKGDIR/SLES12/02Aug2021
 
 echo '-------------------------'
 echo 'Copy Matrix'
@@ -125,6 +131,11 @@ echo '-------------------------'
 echo 'Compute Munchausen Numbers'
 echo '-------------------------'
 julia test_munchausen.jl
+
+echo '-------------------------'
+echo 'Compute Pernicious Numbers'
+echo '-------------------------'
+julia test_pernicious_numbers.jl 100000
 
 #julia test_time_series_AOA.jl
 

@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=02:30:00
+#SBATCH --time=00:30:00
 #SBATCH --job-name=python_numba
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A a930b
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Python2018log_Numba-%j.out
+#SBATCH -o Python2021log_Numba-%j.out
 
 
 #######################################################################
@@ -21,7 +21,8 @@ limit
 source /usr/share/modules/init/csh
 module purge
 
-module load python/GEOSpyD/Ana2019.10_py3.7
+module load python/GEOSpyD/Min4.9.2_py3.9
+#module load python/GEOSpyD/Ana2019.10_py3.7
 
 echo '-------------------------'
 echo 'Numba - Copy of matrix'

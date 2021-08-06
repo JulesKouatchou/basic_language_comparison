@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=09:15:00
+#SBATCH --time=10:15:00
 #SBATCH --job-name=Rscript
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o R2019log-%j.out
+#SBATCH -o R2021log-%j.out
 
 
 #######################################################################
@@ -20,8 +20,11 @@ limit
 
 source /usr/share/modules/init/csh
 module purge
-module load R/3.6.3
-setenv R_LIBS /discover/nobackup/jkouatch/LearningPython/compareLanguages/refSourceFiles/R/locPACKAGES
+module load R/4.1.0
+setenv R_LIBS /home/jkouatch/tools/R/4.1.0
+
+#module load R/3.6.3
+#setenv R_LIBS /discover/nobackup/jkouatch/LearningPython/compareLanguages/refSourceFiles/R/locPACKAGES
 
 echo '-------------------------'
 echo 'Copy Matrix'
@@ -122,6 +125,13 @@ date +"%m-%d-%Y %T"
 Rscript test_evaluate_functions.R 80000
 Rscript test_evaluate_functions.R 90000
 Rscript test_evaluate_functions.R 100000
+
+echo '-------------------------'
+echo 'Pernicious numbers'
+echo '-------------------------'
+date +"%m-%d-%Y %T"
+
+Rscript test_pernicious_numbers.R 100000
 
 #echo '-------------------------'
 #echo 'Munchausen number'

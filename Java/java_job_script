@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=01:30:00
+#SBATCH --time=03:30:00
 #SBATCH --job-name=java
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Java2019log-%j.out
+#SBATCH -o Java2021-%j.out
 
 
 #######################################################################
@@ -20,13 +20,14 @@ limit
 
 source /usr/share/modules/init/csh
 module purge
+module load jdk/15
 
-setenv JAVA_HOME /discover/swdev/mathomp4/other/SLES12.3/OpenJDK/jdk-13.0.1/
-setenv JAVA_BINDIR $JAVA_HOME/bin
-setenv JAVA_ROOT $JAVA_HOME
-setenv JRE_HOME $JAVA_HOME
-setenv JDK_HOME $JAVA_HOME
-setenv PATH $JAVA_HOME/bin:${PATH}
+#setenv JAVA_HOME /discover/swdev/mathomp4/other/SLES12.3/OpenJDK/jdk-13.0.1/
+#setenv JAVA_BINDIR $JAVA_HOME/bin
+#setenv JAVA_ROOT $JAVA_HOME
+#setenv JRE_HOME $JAVA_HOME
+#setenv JDK_HOME $JAVA_HOME
+#setenv PATH $JAVA_HOME/bin:${PATH}
 
 #setenv JAVA_HOME /usr/local/other/SLES11.1/jdk/jdk-10.0.2
 #setenv JAVA_BINDIR /usr/local/other/SLES11.1/jdk/jdk-10.0.2/jre/bin
@@ -120,8 +121,16 @@ java testEvaluateFunctions 100000
 #java testGaussLegendreQuadrature 100
 
 echo '-------------------------'
+echo 'Pernicious Numbers'
+echo '-------------------------'
+javac testPerniciousNumbers.java
+java testPerniciousNumbers 100000
+
+echo '-------------------------'
 echo 'Munchausen Numbers'
 echo '-------------------------'
 javac testMunchausenNumber.java
 java testMunchausenNumber
 
+
+rm -f *.class

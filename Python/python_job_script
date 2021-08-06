@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=07:50:00
+#SBATCH --time=05:50:00
 #SBATCH --job-name=numpy
-#SBATCH --ntasks=28
-#SBATCH --constraint=hasw
-#SBATCH -A k3002
+#SBATCH --ntasks=40
+#SBATCH --constraint=sky
+#SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Python2019log-%j.out
+#SBATCH -o Python2021-%j.out
 
 
 #######################################################################
@@ -21,7 +21,8 @@ umask 022
 source /usr/share/modules/init/csh
 module purge
 
-module load python/GEOSpyD/Ana2019.10_py3.7
+module load python/GEOSpyD/Min4.9.2_py3.9
+#module load python/GEOSpyD/Ana2019.10_py3.7
 
 
 echo '-------------------------'
@@ -147,6 +148,11 @@ echo '-------------------------'
 echo 'Compute Munchausen Numbers'
 echo '-------------------------'
 python test_munchausen_number.py
+
+echo '-------------------------'
+echo 'Compute Pernicious Numbers'
+echo '-------------------------'
+python test_pernicious_numbers.py 100000
 #
 #echo '-------------------------'
 #echo 'Processing a collection of files'
