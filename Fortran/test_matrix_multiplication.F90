@@ -50,7 +50,9 @@
     do j = 1, dim3
         do i = 1, dim1
             C(i, j) = 0.
-            do k = 1, dim2
+        end do
+        do k = 1, dim2
+            do i = 1, dim1
                 C(i, j) = C(i, j) + A(i, k)*B(k, j)
             end do
         end do
