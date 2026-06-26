@@ -116,7 +116,7 @@ void implement_BCs(grid_struct *grid, double *u[]) {
         for (j = 0; j < N; j++) {
                 x = x_min + j*h;
                 u[j][0] = sin(pi*x);
-                u[j][N] = sin(pi*x)*exp(-pi);
+                u[j][N-1] = sin(pi*x)*exp(-pi);
         }
 }
 
