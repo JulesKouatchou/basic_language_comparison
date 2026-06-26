@@ -65,7 +65,7 @@ double*** make_3D_double_arr(int arr_size_x, int arr_size_y, int arr_size_z) {
     double_array = (double***) malloc(arr_size_x*sizeof(double**));
     for (i = 0; i < arr_size_x; i++) {
         double_array[i] = (double**) malloc(arr_size_y*sizeof(double*));
-        for (j = 0; j < arr_size_y; i++) {
+        for (j = 0; j < arr_size_y; j++) {
             double_array[i][j] = (double*) malloc(arr_size_z*sizeof(double));
         }
     }
