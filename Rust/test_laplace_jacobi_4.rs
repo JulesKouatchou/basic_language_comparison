@@ -8,12 +8,12 @@ const MAX_SWEEPS: usize = 10_000_000;
 
 struct GridStruct {
     n: usize,
-    dx: f64,
+    //dx: f64,
     x_min: f64,
-    x_max: f64,
-    dy: f64,
-    y_min: f64,
-    y_max: f64,
+    //x_max: f64,
+    //dy: f64,
+    //y_min: f64,
+    //y_max: f64,
     h: f64,
     grid_epsilon: f64,
 }
@@ -39,22 +39,22 @@ fn main() {
 
     let x_min = 0.0;
     let x_max = 1.0;
-    let y_min = 0.0;
-    let y_max = 1.0;
+    //let y_min = 0.0;
+    //let y_max = 1.0;
     let epsilon = 1.0e-6;
 
     let dx = (x_max - x_min) / (n as f64);
-    let dy = (y_max - y_min) / (n as f64);
+    //let dy = (y_max - y_min) / (n as f64);
     let h = dx;
 
     let grid = GridStruct {
         n,
-        dx,
+        //dx,
         x_min,
-        x_max,
-        dy,
-        y_min,
-        y_max,
+        //x_max,
+        //dy,
+        //y_min,
+        //y_max,
         h,
         grid_epsilon: epsilon * h.sqrt(),
     };

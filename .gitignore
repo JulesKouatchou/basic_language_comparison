@@ -145,6 +145,14 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# R
+.RData
+.Rhistory 
+._.Rhistory
+
+._.DS_Store
+.DS_Store 
+
 # Rope project settings
 .ropeproject
 
@@ -158,6 +166,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Rust
+Cargo.lock 
+target/
 
 # pytype static type analyzer
 .pytype/

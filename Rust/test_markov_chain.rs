@@ -48,7 +48,7 @@ fn f(x: &[f64; 2]) -> f64 {
 
 /// Markov Chain Monte Carlo using Metropolis-Hastings and Box-Muller
 fn mcmc(x: &mut [f64; 2], n: usize) {
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     let mut p = f(x);
     let mut x2 = [0.0f64; 2];
 
@@ -57,11 +57,11 @@ fn mcmc(x: &mut [f64; 2], n: usize) {
         // `rng.gen::<f64>()` generates a uniform float in the range [0.0, 1.0).
         // Note: To perfectly mimic C's rand()/RAND_MAX we use gen(), but we add
         // a tiny epsilon to U1 to prevent ln(0.0) which yields -Infinity.
-        let mut u1: f64 = rng.gen();
+        let mut u1: f64 = rng.random();
         if u1 == 0.0 {
             u1 = std::f64::EPSILON;
         }
-        let u2: f64 = rng.gen();
+        let u2: f64 = rng.random();
 
         let r1 = (-2.0 * u1.ln()).sqrt() * (2.0 * PI * u2).cos();
         let r2 = (-2.0 * u1.ln()).sqrt() * (2.0 * PI * u2).sin();
@@ -73,7 +73,7 @@ fn mcmc(x: &mut [f64; 2], n: usize) {
 
         // Metropolis acceptance criterion
         let acceptance_ratio = p2 / p;
-        if rng.gen::<f64>() < acceptance_ratio {
+        if rng.random::<f64>() < acceptance_ratio {
             x[0] = x2[0];
             x[1] = x2[1];
             p = p2;

@@ -26,13 +26,13 @@ fn main() {
     let mut b = make_2d_array_double(dim, dim);
     let mut c = make_2d_array_double(dim, dim);
 
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
 
     // Fill matrices A and B with random numbers between 0.0 and 1.0
     for i in 0..dim {
         for j in 0..dim {
-            a[i][j] = rng.gen::<f64>();
-            b[i][j] = rng.gen::<f64>();
+            a[i][j] = rng.random::<f64>();
+            b[i][j] = rng.random::<f64>();
         }
     }
 

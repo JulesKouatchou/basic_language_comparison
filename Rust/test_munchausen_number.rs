@@ -12,6 +12,7 @@ fn main() {
     // Precompute the digit powers
     for i in 0..10 {
         power_of_digits[i] = raisedto(i as i32);
+        //println!("power_of_digits {}: {}", i, power_of_digits[i]);
     }
 
     let mut n = 0;
@@ -44,12 +45,12 @@ fn main() {
 }
 
 /// Calculates n^n, with the special convention that 0^0 = 0
-fn raisedto(n: i32) -> i32 {
+fn raisedto(n: i32) -> i64 {
     if n == 0 {
         0
     } else {
         // Rust's integer pow takes a u32 for the exponent
-        n.pow(n as u32)
+        n.pow(n as u32).into()
     }
 }
 

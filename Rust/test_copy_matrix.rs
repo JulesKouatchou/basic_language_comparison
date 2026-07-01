@@ -24,13 +24,13 @@ fn main() {
     // Allocate the 3D array using our helper function
     let mut a = make_3d_double_arr(dim, dim, 3);
 
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
 
     // Fill the array with random numbers between 0.0 and 1.0
     for i in 0..dim {
         for j in 0..dim {
             for k in 0..3 {
-                a[i][j][k] = rng.gen::<f64>();
+                a[i][j][k] = rng.random::<f64>();
             }
         }
     }

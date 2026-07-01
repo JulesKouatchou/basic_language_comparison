@@ -35,12 +35,12 @@ fn main() {
     let mut a = vec![vec![0.0f64; DIM]; DIM];
     let mut x = vec![1.0f64; DIM];
 
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
 
     // Initialize the A matrix with random numbers between 0.0 and 1.0
     for i in 0..DIM {
         for j in 0..DIM {
-            a[i][j] = rng.gen::<f64>();
+            a[i][j] = rng.random::<f64>();
         }
     }
 
