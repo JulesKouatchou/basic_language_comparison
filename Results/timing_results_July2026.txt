@@ -1,0 +1,124 @@
+
+Rust, copy_matrix, 0.4172
+Rust, look_and_say, 0.21241
+Rust, iterative_fibonacci, 0.00
+Rust, recursive_fibonacci, 5.2921
+Rust, matrix_multiplication, 51.193
+Rust, evaluate_functions, 174.308
+Rust, belief_propagation, 9.08657
+Rust, markov_chain, 0.000219
+Rust, laplace_equation, 10.8162
+Rust, munchauser_number, 6.359
+Rust, pernicious_number, 0.002015
+
+C, copy_matrix, 0.1780
+C, look_and_say, 0.5612
+C, iterative_fibonacci, 0.00
+C, recursive_fibonacci, 2.0356
+C, matrix_multiplication, 4.7616
+C, evaluate_functions, 160.9337
+C, belief_propagation, 12.0822
+C, markov_chain, 0.002253
+C, laplace_equation, 5.5485
+C, munchauser_number, 5.6951
+C, pernicious_number, 0.002055
+
+Fortran, copy_matrix, 0.16011
+Fortran, look_and_say, 0.014765
+Fortran, iterative_fibonacci, 0.00
+Fortran, recursive_fibonacci, 0.00
+Fortran, matrix_multiplication, 1.7880
+Fortran, evaluate_functions, 103.2395
+Fortran, belief_propagation, 7.93363
+Fortran, markov_chain, 0.002241
+Fortran, laplace_equation, 4.598
+Fortran, munchauser_number, 34.7188
+Fortran, pernicious_number, 0.0127
+
+Matlab, copy_matrix, 0.238846
+Matlab, look_and_say, 1625.9967
+Matlab, iterative_fibonacci, 0.08726
+Matlab, recursive_fibonacci, 90.1251
+Matlab, matrix_multiplication, 0.276294
+Matlab, evaluate_functions, 6.394819
+Matlab, belief_propagation, 2.928768
+Matlab, markov_chain, 0.101329
+Matlab, laplace_equation, 11.124356
+Matlab, munchauser_number, 091473
+Matlab, pernicious_number, 2.7860
+
+IDL, copy_matrix, 0.72428
+IDL, look_and_say, 378.36996
+IDL, iterative_fibonacci, 0.0
+IDL, recursive_fibonacci, 487.79427
+IDL, matrix_multiplication, 0.038925
+IDL, evaluate_functions, 23.912990
+IDL, belief_propagation, 1.02504
+IDL, markov_chain, 0.01834
+IDL, laplace_equation, 14.492167
+IDL, pernicious_number, 3.3294
+
+R, copy_matrix, 14.802
+R, iterative_fibonacci, 0.043
+R, recursive_fibonacci, 0.016
+R, matrix_multiplication, 0.539
+R, evaluate_functions, 150.481
+R, belief_propagation, 42.431
+R, markov_chain, 0.184
+R, laplace_equation, 358.894
+R, pernicious_number, 233.504
+
+Java, copy_matrix, 0.38
+Java, look_and_say, 0.1102
+Java, iterative_fibonacci, 0.0000
+Java, recursive_fibonacci, 7.51
+Java, matrix_multiplication, 23.576
+Java, evaluate_functions, 155.025
+Java, belief_propagation, 299.489
+Java, markov_chain, 0.008
+Java, laplace_equation, 6.606
+Java, munchauser_number, 8.625
+Java, pernicious_number, 0.016
+
+Python, copy_matrix, 0.7973
+Python, look_and_say, 204.8140
+Python, iterative_fibonacci, 0.00
+Python, recursive_fibonacci, 964.4068
+Python, matrix_multiplication, 0.5501
+Python, evaluate_functions, 126.1451
+Python, belief_propagation, 6.3128
+Python, markov_chain, 0.1096
+Python, laplace_equation, 21.1608
+Python, munchauser_number, 629.6087
+Python, pernicious_number, 0.1553
+
+Python+Numba, copy_matrix, 0.1174
+Python+Numba, iterative_fibonacci, 0.00
+Python+Numba, matrix_multiplication, 0.1484
+Python+Numba, belief_propagation, 6.8147
+Python+Numba, evaluate_functions, 1.6750
+Python+Numba, laplace_equation, 0.0681
+
+Julia, copy_matrix, 0.13128
+Julia, iterative_fibonacci, 0.00
+Julia, recursive_fibonacci, 6.431
+Julia, matrix_multiplication, 0.5358
+Julia, evaluate_functions, 71.373
+Julia, belief_propagation, 6.603
+Julia, markov_chain, 0.00
+Julia, laplace_equation, 21.3147
+Julia, munchauser_number, 6.908
+Julia, pernicious_number, 0.001346
+
+#Scala, copy_matrix, 0.771
+#Scala, look_and_say, 0.1700
+#Scala, iterative_fibonacci, 0.00
+#Scala, recursive_fibonacci, 6.1910
+#Scala, matrix_multiplication, 29.2470
+#Scala, evaluate_functions, 213.1260
+#Scala, belief_propagation, 200.0460
+#Scala, markov_chain, 0.0110
+#Scala, laplace_equation, 6.2300
+#Scala, munchauser_number, 63.905
+#Sacla, pernicious_number, 26.9280
+

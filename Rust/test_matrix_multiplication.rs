@@ -26,6 +26,9 @@ fn main() {
     let mut b = make_2d_array_double(dim, dim);
     let mut c = make_2d_array_double(dim, dim);
 
+    // Initialize the result matrix with zeros 
+    // let mut c = vec![vec![0; dim]; dim];
+
     let mut rng = rand::rng();
 
     // Fill matrices A and B with random numbers between 0.0 and 1.0
@@ -43,13 +46,22 @@ fn main() {
     for i in 0..dim {
         for j in 0..dim {
             c[i][j] = 0.0;
-        }
-        for k in 0..dim {
-            for j in 0..dim {
+            for k in 0..dim {
                 c[i][j] += a[i][k] * b[k][j];
             }
         }
     }
+
+    //for i in 0..dim {
+    //    for j in 0..dim {
+    //        c[i][j] = 0.0;
+    //    }
+    //    for k in 0..dim {
+    //        for j in 0..dim {
+    //            c[i][j] += a[i][k] * b[k][j];
+    //        }
+    //    }
+    //}
 
     // End the timer
     let duration = start.elapsed();

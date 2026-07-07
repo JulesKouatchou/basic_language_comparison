@@ -22,8 +22,8 @@ function markov_optimized(x, N)
     f(x1, x2) = exp(sin(x1*5) - x1^2 - x2^2)
     p = f(x1, x2)
     for n = 1:N
-        y1 = x1 + 0.01*randn(x1)
-        y2 = x2 + 0.01*randn(x2)
+        y1 = x1 + 0.01*randn() #randn(x1)
+        y2 = x2 + 0.01*randn() #randn(x2)
         q = f(y1, y2)
         if p*rand() < q
             x1 = y1

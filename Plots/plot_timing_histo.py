@@ -16,7 +16,8 @@ params = {'legend.fontsize': 'x-large',
          'ytick.labelsize':'x-large'}
 pylab.rcParams.update(params)
 
-month="Aug2021"
+#month="Aug2021"
+month="July2026"
 
 def get_timing(lang, test):
     result = None
@@ -28,8 +29,8 @@ def get_timing(lang, test):
                 break
     return result
 
-languages = ["C", "Fortran", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java"]
-#languages = ["C", "Fortran", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Scala"]
+languages = ["C", "Fortran", "Rust", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java"]
+#languages = ["C", "Fortran", "Rust", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Scala"]
 
 test_cases = ["copy_matrix", "look_and_say", "iterative_fibonacci", "recursive_fibonacci", "matrix_multiplication", "evaluate_functions", "belief_propagation", "markov_chain", "laplace_equation", "munchauser_number", "pernicious_number"]
 

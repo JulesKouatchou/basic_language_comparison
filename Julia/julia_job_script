@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=04:00:00
+#SBATCH --time=01:00:00
 #SBATCH --job-name=Julia
-#SBATCH --ntasks=40
-#SBATCH --constraint=sky
+#SBATCH --ntasks=100
+#SBATCH --constraint=mil
 #SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Julia_2021log-%j.out
+#SBATCH -o Julia_2026log-%j.out
 
 
 #######################################################################
@@ -36,11 +36,13 @@ module purge
 #setenv JULIA_DEPOT_PATH /gpfsm/dnb32/jkouatch/JULIA_PKGDIR/SLES12/30April2020
 
 # SLES12
-module load comp/gcc/11.1.0
-module load julia/1.6.2
-#setenv PATH /usr/local/other/julia/1.6.2/bin:$PATH
-#setenv LD_LIBRARY_PATH /usr/local/other/julia/1.6.2/lib:$LD_LIBRARY_PATH
-setenv JULIA_DEPOT_PATH /discover/nobackup/jkouatch/JULIA_PKGDIR/SLES12/02Aug2021
+#module load comp/gcc/11.1.0
+#module load julia/1.6.2
+#setenv JULIA_DEPOT_PATH /discover/nobackup/jkouatch/JULIA_PKGDIR/SLES12/02Aug2021
+
+module load comp/gcc/13.4.0
+module load julia/1.10.4 
+setenv JULIA_DEPOT_PATH /discover/nobackup/jkouatch/JULIA_PKGDIR/SLES15/July2026
 
 echo '-------------------------'
 echo 'Copy Matrix'
@@ -56,13 +58,13 @@ julia test_copy_matrix.jl 9000
 #julia test_look_and_say_2.jl 45
 #julia test_look_and_say_2.jl 48
 
-echo '-------------------------'
-echo ‘Count Unique Words in File
-echo '-------------------------'
-julia test_count_unique_words.jl ../Data/bible.txt
-julia test_count_unique_words.jl ../Data/book1.txt
-julia test_count_unique_words.jl ../Data/plrabn12.txt
-julia test_count_unique_words.jl ../Data/world192.txt
+#echo '-------------------------'
+#echo ‘Count Unique Words in File
+#echo '-------------------------'
+#julia test_count_unique_words.jl ../Data/bible.txt
+#julia test_count_unique_words.jl ../Data/book1.txt
+#julia test_count_unique_words.jl ../Data/plrabn12.txt
+#julia test_count_unique_words.jl ../Data/world192.txt
 
 echo '-------------------------'
 echo 'Fibonacci Sequence'

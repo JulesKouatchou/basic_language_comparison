@@ -201,7 +201,7 @@ end
 
 result = @elapsed begin
     v = initialize_c()
-    u, error, iteration = solver(v, c_time_step)
+    u, my_err, iteration = solver(v, c_time_step)
 end
 benchmarks = (benchmarks..., :c_time_step => (result, iteration))
 for (name, (t, sweeps)) in benchmarks

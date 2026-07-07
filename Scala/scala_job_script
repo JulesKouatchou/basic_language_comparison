@@ -21,7 +21,8 @@ limit
 source /usr/share/modules/init/csh
 module purge
 
-setenv JAVA_HOME /discover/swdev/mathomp4/other/SLES12.3/OpenJDK/jdk-13.0.1/
+#setenv JAVA_HOME /discover/swdev/mathomp4/other/SLES12.3/OpenJDK/jdk-13.0.1/
+setenv JAVA_HOME /discover/swdev/gmao_SIteam/other/SLES15.4/OpenJDK/jdk-24.0.1
 setenv JAVA_BINDIR $JAVA_HOME/bin
 setenv JAVA_ROOT $JAVA_HOME
 setenv JRE_HOME $JAVA_HOME

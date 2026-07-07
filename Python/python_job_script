@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=05:50:00
+#SBATCH --time=02:50:00
 #SBATCH --job-name=numpy
-#SBATCH --ntasks=40
-#SBATCH --constraint=sky
+#SBATCH --ntasks=100
+#SBATCH --constraint=mil
 #SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Python2021-%j.out
+#SBATCH -o Python2026-%j.out
 
 
 #######################################################################
@@ -21,8 +21,8 @@ umask 022
 source /usr/share/modules/init/csh
 module purge
 
-module load python/GEOSpyD/Min4.9.2_py3.9
-#module load python/GEOSpyD/Ana2019.10_py3.7
+#module load python/GEOSpyD/Min4.9.2_py3.9
+module load python/GEOSpyD/26.3.2-0/3.14
 
 
 echo '-------------------------'

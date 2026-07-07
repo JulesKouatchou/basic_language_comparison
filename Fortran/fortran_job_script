@@ -1,19 +1,19 @@
 #! /bin/csh -f
 
-#SBATCH --time=03:20:00
+#SBATCH --time=02:20:00
 #SBATCH --job-name=fortran
-#SBATCH --ntasks=40
-#SBATCH --constraint=sky
+#SBATCH --ntasks=100
+#SBATCH --constraint=mil
 #SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o Fortran2021log-%j.out
+#SBATCH -o Fortran2026log-%j.out
 
 source /usr/share/modules/init/csh
 module purge
  
-module load comp/gcc/11.1.0
-module load comp/intel/2021.2.0
+module load comp/gcc/13.4.0
+module load comp/intel/2025.3.2
 
 rm -f *.exe
 

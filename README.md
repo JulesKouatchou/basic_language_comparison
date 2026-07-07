@@ -271,7 +271,29 @@ It also has sample text files for the **Count Unique Words in a File** test case
 - The pernicious number test case was added.
 - All the calculations were done in an Intel Xeon Skylake node (40 cores, 2.4 Ghz per core, 4 Gb of memory per core).
 
-![Histogram (Aug2021](Plots/fig_languages_histo_Aug2021.png)
+![Histogram (Aug2021)](Plots/fig_languages_histo_Aug2021.png)
 
-![Scatter Plot (Aug2021](Plots/fig_languages_scatter_Aug2021.png)
+![Scatter Plot (Aug2021)](Plots/fig_languages_scatter_Aug2021.png)
+
+**July 2026**
+
+| Language | Version |
+| --- | --- |
+| Python | 3.14 |
+| Numba | 0.65.1 |
+| Julia | 1.10.4 |
+| Rust | 1.96.0 |
+| Java | OpenJDK: 24.0.1 |
+| Scala |  |
+| IDL | 9.1 |
+| R |   4.4.3 |
+| Matlab | R2023b |
+| GNU Compilers | 13.4.0 |
+
+- The pernicious number test case was added.
+- All the calculations were done in an Intel Xeon Skylake node (40 cores, 2.4 Ghz per core, 4 Gb of memory per core).
+
+![Histogram (July2026)](Plots/fig_languages_histo_July2026.png)
+
+![Scatter Plot (July2026)](Plots/fig_languages_scatter_July2026.png)
 

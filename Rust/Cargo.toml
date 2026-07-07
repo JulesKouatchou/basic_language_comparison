@@ -1,0 +1,53 @@
+[package]
+name = "Rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.9"
+
+[[bin]]
+name = "fibonacci"
+path = "test_fibonacci.rs"
+
+[[bin]]
+name = "gauss_legendre_quadrature"
+path = "test_gauss_legendre_quadrature.rs"
+
+[[bin]]
+name = "evaluate_functions"
+path = "test_evaluate_functions.rs"
+
+[[bin]]
+name = "munchausen_number"
+path = "test_munchausen_number.rs"
+
+[[bin]]
+name = "pernicious_numbers"
+path = "test_pernicious_numbers.rs"
+
+[[bin]]
+name = "look_and_say"
+path = "test_look_and_say.rs"
+
+[[bin]]
+name = "laplace_jacobi_4"
+path = "test_laplace_jacobi_4.rs"
+
+[[bin]]
+name = "copy_matrix"
+path = "test_copy_matrix.rs"
+
+[[bin]]
+name = "markov_chain"
+path = "test_markov_chain.rs"
+
+[[bin]]
+name = "matrix_multiplication"
+path = "test_matrix_multiplication.rs"
+
+[[bin]]
+name = "belief_propagation"
+path = "test_belief_propagation.rs"
+
+

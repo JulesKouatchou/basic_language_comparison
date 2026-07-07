@@ -1,13 +1,13 @@
 #!/bin/csh -f
 
-#SBATCH --time=03:10:00
-#SBATCH --job-name=C_test
-#SBATCH --ntasks=40
-#SBATCH --constraint=sky
+#SBATCH --time=01:10:00
+#SBATCH --job-name=Rust_test
+#SBATCH --ntasks=100
+#SBATCH --constraint=mil
 #SBATCH -A j1008
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH -o C2021log-%j.out
+#SBATCH -o Rust2026log-%j.out
 
 
 #######################################################################
@@ -33,80 +33,80 @@ rm -fr target
 cargo build
 
 echo '--------------------------------------------------'
-echo 'Rust - Munchausen Number: Regular'
+echo 'Rust - Matrix Copy: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin munchausen_number
-
-echo '--------------------------------------------------'
-echo 'Rust - Pernicious Number: Regular'
-echo '--------------------------------------------------'
-
-cargo run --bin pernicious_numbers 100000
+cargo run --release --bin copy_matrix 5000
+cargo run --release --bin copy_matrix 7000
+cargo run --release --bin copy_matrix 9000
 
 echo '--------------------------------------------------'
 echo 'Rust - Look and Say: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin look_and_say 40
-cargo run --bin look_and_say 45
-cargo run --bin look_and_say 48
+cargo run --release --bin look_and_say 40
+cargo run --release --bin look_and_say 45
+cargo run --release --bin look_and_say 48
 
 echo '--------------------------------------------------'
 echo 'Rust - Fibonacci: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin fibonacci 25
-cargo run --bin fibonacci 35
-cargo run --bin fibonacci 45
-
-echo '--------------------------------------------------'
-echo 'Rust - Evaluate Functions: Regular'
-echo '--------------------------------------------------'
-
-cargo run --bin evaluate_functions 80000
-cargo run --bin evaluate_functions 90000
-cargo run --bin evaluate_functions 100000
-
-echo '----------------------------------------------------'
-echo 'Rust - Fourth-order Laplace: Regular'
-echo '----------------------------------------------------'
-
-cargo run --bin laplace_jacobi_4 100
-cargo run --bin laplace_jacobi_4 150
-cargo run --bin laplace_jacobi_4 200
-
-echo '--------------------------------------------------'
-echo 'Rust - Matrix Copy: Regular'
-echo '--------------------------------------------------'
-
-cargo run --bin copy_matrix 5000
-cargo run --bin copy_matrix 7000
-cargo run --bin copy_matrix 9000
+cargo run --release --bin fibonacci 25
+cargo run --release --bin fibonacci 35
+cargo run --release --bin fibonacci 45
 
 echo '--------------------------------------------------'
 echo 'Rust - Matrix Multiplication: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin matrix_multiplication 1500 1500 1500
-cargo run --bin matrix_multiplication 1750 1750 1750
-cargo run --bin matrix_multiplication 2000 2000 2000
+cargo run --release --bin matrix_multiplication 1500 1500 1500
+cargo run --release --bin matrix_multiplication 1750 1750 1750
+cargo run --release --bin matrix_multiplication 2000 2000 2000
+
+echo '--------------------------------------------------'
+echo 'Rust - Evaluate Functions: Regular'
+echo '--------------------------------------------------'
+
+cargo run --release --bin evaluate_functions 80000
+cargo run --release --bin evaluate_functions 90000
+cargo run --release --bin evaluate_functions 100000
 
 echo '--------------------------------------------------'
 echo 'Rust - Belief: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin belief_propagation 250
-cargo run --bin belief_propagation 500
-cargo run --bin belief_propagation 1000
+cargo run --release --bin belief_propagation 250
+cargo run --release --bin belief_propagation 500
+cargo run --release --bin belief_propagation 1000
 
 echo '--------------------------------------------------'
 echo 'Rust - Markov Chain: Regular'
 echo '--------------------------------------------------'
 
-cargo run --bin markov_chain 5000
-cargo run --bin markov_chain 10000
-cargo run --bin markov_chain 15000
+cargo run --release --bin markov_chain 5000
+cargo run --release --bin markov_chain 10000
+cargo run --release --bin markov_chain 15000
+
+echo '----------------------------------------------------'
+echo 'Rust - Fourth-order Laplace: Regular'
+echo '----------------------------------------------------'
+
+cargo run --release --bin laplace_jacobi_4 100
+cargo run --release --bin laplace_jacobi_4 150
+cargo run --release --bin laplace_jacobi_4 200
+
+echo '--------------------------------------------------'
+echo 'Rust - Munchausen Number: Regular'
+echo '--------------------------------------------------'
+
+cargo run --release --bin munchausen_number
+
+echo '--------------------------------------------------'
+echo 'Rust - Pernicious Number: Regular'
+echo '--------------------------------------------------'
+
+cargo run --release --bin pernicious_numbers 100000
 
 
 rm -fr target

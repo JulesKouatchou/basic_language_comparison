@@ -50,14 +50,14 @@ def loop_solver(n):
         Find the desired numerical solution using loops
     """
 
-    j = np.complex(0, 1)
+    #j = np.complex(0, 1)
     pi_c = np.pi
 
     # Set the initial condition
     u = np.zeros((n, n), dtype=float)
 
     #       Set the boundary condition
-    x = np.r_[0.0:pi_c:n*j]
+    x = x = np.linspace(0.0, pi_c, n) # np.r_[0.0:pi_c:n*j]
     u[0, :] = np.sin(x)
     u[n-1, :] = np.sin(x)*np.exp(-pi_c)
 
@@ -93,14 +93,14 @@ def vectorized_solver(n):
     """
         Find the desired numerical solution using vectorization
     """
-    j = np.complex(0, 1)
+    #j = np.complex(0, 1)
     pi_c = np.pi
 
     # Set the initial condition
     u = np.zeros((n, n), dtype=float)
 
     # Set the boundary condition
-    x = np.r_[0.0:pi_c:n*j]
+    x = x = np.linspace(0.0, pi_c, n) # np.r_[0.0:pi_c:n*j]
     u[0, :] = np.sin(x)
     u[n-1, :] = np.sin(x)*np.exp(-pi_c)
 
@@ -117,7 +117,7 @@ num_points = int(sys.argv[1])
 
 print("Jacobi solver for Laplace Equation: ", num_points)
 
-(u, error, iteration) = loop_solver(num_points)
+#(u, error, iteration) = loop_solver(num_points)
 
 (u, error, iteration) = vectorized_solver(num_points)
 
