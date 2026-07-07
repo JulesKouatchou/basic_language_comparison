@@ -290,8 +290,7 @@ It also has sample text files for the **Count Unique Words in a File** test case
 | Matlab | R2023b |
 | GNU Compilers | 13.4.0 |
 
-- The pernicious number test case was added.
-- All the calculations were done in an Intel Xeon Skylake node (40 cores, 2.4 Ghz per core, 4 Gb of memory per core).
+- All the calculations were done in a AMD Milan EPYC node (128 cores, 2.0 Ghz, 512 Gb of memory).
 
 ![Histogram (July2026)](Plots/fig_languages_histo_July2026.png)
 
