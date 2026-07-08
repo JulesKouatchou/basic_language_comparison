@@ -290,6 +290,7 @@ It also has sample text files for the **Count Unique Words in a File** test case
 | Matlab | R2023b |
 | GNU Compilers | 13.4.0 |
 
+- Implemented all the testcases with Rust.
 - All the calculations were done in a AMD Milan EPYC node (128 cores, 2.0 Ghz, 512 Gb of memory).
 
 ![Histogram (July2026)](Plots/fig_languages_histo_July2026.png)

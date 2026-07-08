@@ -29,8 +29,8 @@ def get_timing(lang, test):
                 break
     return result
 
-languages = ["C", "Fortran", "Rust", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java"]
-#languages = ["C", "Fortran", "Rust", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Scala"]
+languages = ["C", "Fortran", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Rust"]
+#languages = ["C", "Fortran", "Python", "Numba", "Julia", "IDL", "Matlab", "R", "Java", "Scala", "Rust"]
 
 test_cases = ["copy_matrix", "look_and_say", "iterative_fibonacci", "recursive_fibonacci", "matrix_multiplication", "evaluate_functions", "belief_propagation", "markov_chain", "laplace_equation", "munchauser_number", "pernicious_number"]
 
